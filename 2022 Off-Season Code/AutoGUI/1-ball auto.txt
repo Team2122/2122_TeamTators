@@ -1,0 +1,15 @@
+{
+    "Name": "1-ball auto.txt",
+
+    "ControlPoints": [
+        {"X": 0.653, "Y": -0.593, "Vx": 0.0, "Vy": 0.0},
+        {"X": 1.382, "Y": -1.489, "Vx": 0.0, "Vy": 0.0}
+    ],
+
+    "WayPoints": [
+        {"X": 1.382, "Y": -1.489, "Speed": 0.0, "Command": "Shoot"}
+    ],
+
+    "RequiredPoints": [
+    ]
+}

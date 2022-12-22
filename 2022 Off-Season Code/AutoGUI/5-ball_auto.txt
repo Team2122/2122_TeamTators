@@ -1,0 +1,29 @@
+{
+    "Name": "5-ball auto _need to add unshoot function and pick_left-pick_right_.txt",
+
+    "ControlPoints": [
+        {"X": 0.395, "Y": 2.886, "Vx": 0.0, "Vy": 0.0},
+        {"X": 0.516, "Y": 4.026, "Vx": 0.0, "Vy": 0.0},
+        {"X": 2.795, "Y": 2.415, "Vx": 0.0, "Vy": 0.0},
+        {"X": 6.442, "Y": 3.175, "Vx": 0.0, "Vy": 0.0},
+        {"X": 3.843, "Y": 1.838, "Vx": 0.0, "Vy": 0.0}
+    ],
+
+    "WayPoints": [
+        {"X": 0.486, "Y": 4.026, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 1.382, "Y": 3.843, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": -0.198, "Y": 3.828, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 2.78, "Y": 2.43, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 2.643, "Y": 3.053, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 3.54, "Y": 2.476, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 3.084, "Y": 1.868, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 6.457, "Y": 3.145, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 5.94, "Y": 3.281, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 3.874, "Y": 1.823, "Speed": 0.0, "Command": "Shoot"},
+        {"X": 3.904, "Y": 1.169, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 4.512, "Y": 1.61, "Speed": 0.0, "Command": "None"}
+    ],
+
+    "RequiredPoints": [
+    ]
+}

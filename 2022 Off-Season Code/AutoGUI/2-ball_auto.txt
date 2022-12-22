@@ -1,0 +1,17 @@
+{
+    "Name": "2-ball auto _need to fix third way point_.txt",
+
+    "ControlPoints": [
+        {"X": 2.142, "Y": -1.292, "Vx": 0.0, "Vy": 0.0},
+        {"X": 2.901, "Y": -1.96, "Vx": 0.0, "Vy": 0.0}
+    ],
+
+    "WayPoints": [
+        {"X": 2.9, "Y": -1.96, "Speed": 0.0, "Command": "Shoot"},
+        {"X": 3.281, "Y": -1.991, "Speed": 0.0, "Command": "Lambda Lock"},
+        {"X": 2.901, "Y": -2.295, "Speed": 0.0, "Command": "None"}
+    ],
+
+    "RequiredPoints": [
+    ]
+}

@@ -1,0 +1,696 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="coreui.min.css">
+	<link href="nouislider.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="tatorvision.css">
+
+	<script src="nouislider.js"></script>
+	
+    <link rel="icon" type="image/png" sizes="256x256" href="TeamTators.png">
+
+    <title>TatorVision Configuration</title>
+	
+  </head>  
+  <body class="app header-fixed sidebar-md-show sidebar-fixed footer-fixed" >
+  
+    <header class="app-header navbar">
+      <a class="navbar-brand" href="#">
+        <img src="TeamTators.png" class="img-fluid ml-2 mr-2 brand-icon" alt="TatorVision">
+        TatorVision
+      </a>
+      <span class="navbar-text mr-2">
+        <span class="badge badge-secondary" id="connectionBadge">Disconnected</span>
+      </span>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <nav class="sidebar-nav">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" id="camera-status-tab" data-toggle="tab" href="#camera-status">
+                <i class="nav-icon" data-feather="camera"></i>
+                Camera Control
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pipeline-control-tab" data-toggle="tab" href="#pipeline-control">
+                <i class="nav-icon" data-feather="sliders"></i>
+                Pipeline Control
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="filtering-control-tab" data-toggle="tab" href="#filtering-control">
+                <i class="nav-icon" data-feather="crosshair"></i>
+                Filtering Control
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="system-control-tab" data-toggle="tab" href="#system-controls">
+                <i class="nav-icon" data-feather="settings"></i>
+                System Control
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="turret-control-tab" data-toggle="tab" href="#turretcam-controls">
+                <i class="nav-icon" data-feather="camera"></i>
+                Live Feed
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="ball-control-tab" data-toggle="tab" href="#ballcam-controls" >
+                <i class="nav-icon" data-feather="camera"></i>
+                Ball Camera
+              </a>
+            </li>
+		  </ul>
+        </nav>
+      </div>
+
+      <!-- Main Pane -->
+      <main class="main">
+        <span id="status-content"></span>
+        <div class="tab-content" id="nav-tabContent" style="background-color:rgb(240,240,240);" >
+		<br>
+		<div style="text-align:center" >
+			Livestream :  
+			<button type="button" class="btn btn-secondary active" id="Shuffleboard" aria-pressed="true" data-loading-text="<i class='spin' data-feather='loader'></i> Shuffleboard">Shuffleboard</button>
+			<button type="button" class="btn btn-secondary " id="Ball_Detect" aria-pressed="false" data-loading-text="<i class='spin' data-feather='loader'></i> Target">Ball Detection</button>
+			<button type="button" class="btn btn-secondary " id="Target_Detect" aria-pressed="false" data-loading-text="<i class='spin' data-feather='loader'></i> Target">Target Detection</button>
+			<button type="button" class="btn btn-secondary" id="Thresholded" aria-pressed="true" data-loading-text="<i class='spin' data-feather='loader'></i> Thresholded">Thresholded</button>
+		</div>
+			
+          <!-- System Status -->
+          <div class="tab-pane show active" id="camera-status" role="tabpanel" aria-labelledby="camera-status-tab" style="background-color:rgb(240,240,240);" >
+
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col" style="text-align:center; ">Controls</th>
+                  <th scope="col" style="text-align:center; width: 400px;">Camera Feed</th>
+                </tr>
+              </thead>
+
+              <tbody>
+			  
+				<td>
+					</br>
+					<strong class="style-head">Camera Configuration</strong>
+					</br>
+					</br>
+			
+					<div class=" USB_camera" style="margin-bottom: 30px;margin-left: 30px;">
+							
+						<table class="camera_control_table" style="width: 100%" >
+						    <td scope="col" style="width: 47.5%"> 
+								USB Camera :
+								<select id="tatorVisionCamera" style="margin-bottom: 20px;" name="USB Camera" >
+										<option value=0 selected="selected" >Camera 0</option>
+										<option value=1>Camera 1</option>
+								</select>					
+								<br>
+
+								Resolution :
+								<select id="tatorVisionResolution" style="margin-bottom: 20px;" name="resolution" >
+									<option value="640x480" selected="selected" >640 x 480</option>
+									<option value="320x240">320 x 240</option>
+								</select>					
+								<br>
+	
+								Frame Rate :
+								<select id="tatorVisionframeRate" style="margin-bottom: 20px;" name="frameRate" >
+									<option value=30 selected="selected" >30</option>
+									<option value=15>15</option>
+								</select>						
+								<br>
+
+								Orientation :
+								<select id="orientation" style="margin-bottom: 20px;" name="orientation" >
+									<option value=0 >0</option>
+									<option value=90 selected="selected" >90</option>
+									<option value=180>180</option>
+									<option value=270>270</option>
+								</select>										
+							</td>
+
+						    <td scope="col" style="width: 5%"> 
+							</td>
+
+						    <td scope="col" style="width: 47.5%">
+
+
+							Frame Crop Percent :
+								<table style="border-top:0px" >
+
+									<td  style="text-align:right;width: 35%">
+										<div style="margin-bottom: 10px;" class="style-head">Left :</div>
+										<div style="margin-bottom: 10px;" class="style-head">Right :</div>
+										<div style="margin-bottom: 10px;" class="style-head">Top :</div>
+										<div style="margin-bottom: 10px;" class="style-head">Bottom :</div>
+									</td>
+
+									<td  style="text-align:left;">
+										<input type="number" style="text-align:center;width:100px;margin-bottom:3px;" min="0" max="0.50" value="0.00" id="CameraCropLeft"><br>
+										<input type="number" style="text-align:center;width:100px;margin-bottom:3px;" min="0" max="0.50" value="0.00" id="CameraCropRight"><br>
+										<input type="number" style="text-align:center;width:100px;margin-bottom:3px;" min="0" max="0.50" value="0.00" id="CameraCropTop"><br>
+										<input type="number" style="text-align:center;width:100px;margin-bottom:3px;" min="0" max="0.50" value="0.00" id="CameraCropBottom"><br>
+									</td>
+								</table>
+								
+							</td>			
+						</table>
+					</div>
+					
+					<strong class="style-head">Camera Control Parameters</strong>
+					</br>
+					</br>
+
+					<div class="cameraSlider" style="margin-bottom: 30px;margin-left: 30px;">
+
+						<table class="camera_control_table" style="width: 100%" >
+							<td scope="col" style="width: 47.5%"> 							
+								<form>
+								  <div class="form-group">
+									<label for="auto_exposure">Auto Exposure</label>
+										<select class="form-control" id="auto_exposure" >
+											<option value="yes">Yes</option>
+											<option value="no" selected="selected" >No</option>
+										</select>
+									</div>
+								</form>	
+								
+						    <td scope="col" style="width: 5%"> 
+							</td>
+
+						    <td scope="col" style="width: 47.5%">
+								<br>
+								<class="style-head" id="exposure_title">Exposure : </strong><span id="exposure_value"></span>
+								<input type="range" min="1" max="10000" value="1000" class="slider" id="exposure_slider" style="margin-bottom: 15px;">
+							</td>
+						</table>
+						
+						<table class="camera_control_table" style="width: 100%" >
+							<td scope="col" style="width: 47.5%"> 							
+							
+								<class="style-head">Brightness : </strong><span id="brightness_value"></span>
+								<input type="range" min="0" max="100" value="50" class="slider" id="brightness_slider" style="margin-bottom: 15px;">
+
+								<class="style-head">Saturation : </strong><span id="saturation_value"></span>
+								<input type="range" min="0" max="100" value="50" class="slider" id="saturation_slider" style="margin-bottom: 15px;">
+
+								<class="style-head">Red Balance : </strong><span id="colorbalanceR_value"></span>
+								<input type="range" min="0" max="2500" value="1000" class="slider" id="colorbalanceR_slider" style="margin-bottom: 15px;">
+
+							</td>
+
+						    <td scope="col" style="width: 5%"> 
+							</td>
+
+						    <td scope="col" style="width: 47.5%">
+							
+								<class="style-head">Contrast : </strong><span id="contrast_value"></span>
+								<input type="range" min="0" max="100" value="50" class="slider" id="contrast_slider" style="margin-bottom: 15px;">
+
+								<class="style-head">Sharpness : </strong><span id="sharpness_value"></span>
+								<input type="range" min="0" max="100" value="0" class="slider" id="sharpness_slider" style="margin-bottom: 15px;">
+
+								<class="style-head">Blue Balance : </strong><span id="colorbalanceB_value"></span>
+								<input type="range" min="0" max="2500" value="1000" class="slider" id="colorbalanceB_slider" style="margin-bottom: 15px;">
+							</td>
+						</table>
+					</div>
+					
+					<div class="Apply" style="text-align:center;margin-top: 30px;">
+						<button type="button" class="apply_settings" id="applyCamera">Apply Changes</button>
+					</div>
+
+				  </td>
+				
+                  <td>
+					</br>
+					</br>
+					<div class="stream"  style="text-align:center;" >
+						<p> <img style="width: 300px" src= "http://10.21.22.68:1181/stream.mjpg" id="videoStream0" onError='connError(this);' /></p>
+						<!-- <p> <img style="width: 75%" src= "http://10.21.22.68:1181/stream.mjpg" /></p> -->
+					</div>
+					
+					<!--
+					<div class="stream">
+						<p> <img style="width: 75%" src= "http://10.21.22.68:1182/stream.mjpg" /></p>						
+					</div>
+					-->
+					
+				  </td>
+				  
+                </tr>
+              </tbody>
+            </table>
+			
+          </div>
+
+          <!-- Pipeline Controls -->
+          <div class="tab-pane" id="pipeline-control" role="tabpanel" aria-labelledby="pipeline-control-tab" style="background-color:rgb(240,240,240);" >
+
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col" style="text-align:center;">Controls</th>
+                  <th scope="col" style="text-align:center; width: 400px;">Camera Feed</th>
+                </tr>
+              </thead>
+			
+			<td>
+
+				<br>
+				<strong class="style-head">Color Processing Parameters</strong>
+				</br>
+				</br>
+
+				<div class="example" style="margin-bottom: 45px;margin-left: 30px;" >
+				
+					<table class="camera_control_table" style="width: 100%" >					
+
+						<td scope="col" style="width: 47.5%"> 							
+							<form>
+							  <div class="form-group">
+								<label for="dynamic_clipping">Auto Dynamic RGB Clipping</label>
+									<select class="form-control" id="dynamic_clipping" >
+										<option value="yes">Yes</option>
+										<option value="no" selected="selected" >No</option>
+									</select>
+								</div>
+							</form>	
+						</td>
+						
+						<td scope="col" style="width: 5%"> 							
+							<!-- Blank space between columns -->
+						</td>
+						
+						<td scope="col" style="width: 47.5%">
+					
+							<div style="margin-bottom: 10px;" class="style-head" id="rgb_clipping_label">RGB Clipping</div>
+							<div style="margin-bottom: 45px;" class="styled-slider" id="rgb_clipping"></div>
+						</td>	
+					</table>
+					
+					<table class="camera_control_table" style="width: 100%" >
+					
+						<td scope="col" style="width: 47.5%"> 							
+						
+							<div style="margin-bottom: 10px;" class="style-head">Lightness Clipping</div>
+							<div style="margin-bottom: 45px;" class="styled-slider" id="lightness_clipping"></div>
+
+							<div style="margin-bottom: 10px;" class="style-head">Chroma Range</div>
+							<div style="margin-bottom: 45px;" class="styled-slider" id="chroma_range"></div>
+						
+							<div style="margin-bottom: 10px;" class="style-head">Hue Range</div>
+							<div style="margin-bottom: 45px;" class="styled-slider" id="hue_range"></div>
+
+						</td>
+
+						<td scope="col" style="width:5%">
+							<!-- Blank space between columns -->
+						</td>
+
+						<td scope="col" style="width:47.5%">
+							<div><class="style-head">Target Color Values</div>
+							</br>
+							
+							<table class="table" style="width: 50%; margin-bottom: 30px; margin-left: 30px; ">
+
+								<td  style="text-align:center;">
+									<div style="margin-bottom: 10px;" class="style-head">L*</div>
+									<div style="margin-bottom: 10px;" class="style-head">a*</div>
+									<div style="margin-bottom: 10px;" class="style-head">b*</div>
+								</td>
+
+								<td  style="text-align:left;">
+									<input type="number" style="text-align:center;width:100px;" min="0" max="100" value="85.00" id="L_Ref"><br>
+									<input type="number" style="text-align:center;width:100px;" min="-128" max="128" value="37.0" id="a_Ref"><br>
+									<input type="number" style="text-align:center;width:100px;" min="-128" max="128" value="45.0" id="b_Ref"><br>
+								</td>
+							</table>
+				
+							<div><class="style-head">Pixel Values</div> 
+							<br>
+							<div style "border:30px;" >
+								Location    -   X  : <span id="pixel_X">0</span> , Y : <span id="pixel_Y">0</span> <br>
+								RGB Values  -   R  : <span id="pixel_R">0</span> , G : <span id="pixel_G">0</span> , B : <span id="pixel_B">0</span> <br>
+								Lab Values  -   L* : <span id="pixel_CIE_L">0</span> , a* : <span id="pixel_CIE_a">0</span> , b* : <span id="pixel_CIE_b">0</span> <br>
+								LCh Values  -   L* : <span id="pixel_CIE_L2">0</span> , C : <span id="pixel_CIE_C">0</span> , h : <span id="pixel_CIE_h">0</span> <br>
+							</div>
+						</td>
+					</table>
+					
+				</div>								
+
+				<strong class="style-head">Image Processing Parameters</strong>				
+				<br>
+
+				<table class="camera_control_table" style="width: 100%" >					
+
+					<td scope="col" style="width: 47.5%"> 							
+						<div class="textentry" style="margin-bottom: 30px;margin-left: 30px;" >
+							<br>
+							Scale Factor : 
+							<input type="number" style="text-align:center;" value="1.0" min="0.01" max="1" step="0.25" id="scaleFactor">
+						</div>
+					</td>
+					
+					<td scope="col" style="width: 5%"> 							
+						<!-- Blank space between columns -->
+					</td>
+					
+					<td scope="col" style="width: 47.5%">
+						<div class="example" style="margin-bottom: 30px;margin-left: 30px;" >
+							</br>
+							Binarization Threshold : 
+							<input type="number" style="text-align:center;" value="0.6" min="0" max="1" step="0.05" id="threshold">
+							</br>
+						</div>
+					</td>	
+				</table>
+
+				<div class="Apply" style="text-align:center;margin-top: 30px;">
+					<button type="button" class="apply_settings" id="applyPipeline">Apply Changes</button>
+				</div>
+				
+				</td>
+				
+				<td>
+					</br>
+					</br>
+					<div class="stream"  style="text-align:center" >
+						<p> <img style="width: 300px" src= "http://10.21.22.68:1181/stream.mjpg" id="videoStream1" onError='connError(this);' /></p>
+					</div>
+					
+				</td>
+				
+            </table>
+			  
+          </div>		  
+
+          <!-- Filtering Controls -->
+          <div class="tab-pane" id="filtering-control" role="tabpanel" aria-labelledby="filtering-control-tab" style="background-color:rgb(240,240,240);" >
+
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col" style="text-align:center;">Controls</th>
+                  <th scope="col" style="text-align:center; width: 400px;">Camera Feed</th>
+                </tr>
+              </thead>
+
+			  <br>
+			  
+			  <td>
+			  
+				  <br>
+					
+				  <table class="filtering_control_table" style="width: 100%" >
+
+					<strong class="style-head">Filtering Parameters</strong>				
+					</br>
+					</br>
+
+					<td scope="col" style="width: 47.5%"> 							
+
+						<div style="margin-bottom: 10px;" class="style-head">Brightness Range</div>
+						<div style="margin-bottom: 45px;" class="styled-slider" id="brightness_filter"></div>
+
+						<div style="margin-bottom: 10px;" class="style-head">Chroma Range</div>
+						<div style="margin-bottom: 45px;" class="styled-slider" id="chroma_filter"></div>
+
+						<div style="margin-bottom: 10px;" class="style-head">Fullness Range</div>
+						<div style="margin-bottom: 45px;" class="styled-slider" id="fullness_filter"></div>
+
+					</td>
+
+					<td scope="col" style="width: 5%"> 							
+					</td>
+
+					<td scope="col" style="width: 47.5%"> 							
+
+						<div style="margin-bottom: 10px;" class="style-head">Aspect Ratio</div>
+						<div style="margin-bottom: 45px;" class="styled-slider" id="aspect_ratio_filter"></div>
+
+						<div style="margin-bottom: 10px;" class="style-head">Percent Area</div>
+						<div style="margin-bottom: 45px;" class="styled-slider" id="pct_area_filter"></div>
+
+						<div style="margin-bottom: 10px;" class="style-head">Color</div>
+						<select id="color_filter" style="margin-bottom: 45px;" name="color_filter" >
+							<option value="Any" >Any</option>
+							<option value="Green" selected="selected" >Green</option>
+							<option value="Yellow">Yellow</option>
+							<option value="Red">Red</option>
+							<option value="Blue">Blue</option>
+						</select>										
+
+					</td>
+					
+				  </table>
+						
+					</br>
+
+					<strong class="style-head">Post Binarization Operations</strong>
+				
+					<div class="example" style="margin-bottom: 30px;margin-left: 30px;" >
+
+					<table class="camera_control_table" style="width: 100%" >
+
+					</br>
+				
+					<td scope="col" style="width: 50%"> 							
+						<div>
+							Morphological Operator :
+							<select id="morphology" >
+								<option value="Erode">Erosion</option>
+								<option value="Dialate">Dialation</option>
+								<option value="Open" selected="selected" >Opening</option>
+								<option value="Close">Closing</option>
+								<option value="Off">Disabled</option>
+							</select>					
+							</br>
+							</br>
+
+							Connected Components :
+							<select id="conn_comp" >
+								<option value="N4">N4</option>
+								<option value="N8" selected="selected" >N8</option>
+							</select>
+							</br>
+							</br>
+
+							Segmentation Method :
+							<select id="seg_method" >
+								<option value="Mark" selected="selected" >Mark</option>
+								<option value="Jacob" >Jacob</option>
+							</select>
+						</div>
+					</td>
+
+					<td scope="col" style="width: 50%">
+						<div>
+							Boundary Detection :
+							<select id="boundary_detect" >
+								<option value="ParaBound">ParaBound</option>
+								<option value="Divide" selected="selected" >Divide and Conquor</option>
+							</select>
+							</br>
+							</br>
+
+							Target Detection :
+							<select id="target_detect" >
+								<option value="Hexagon">Hexagon</option>
+								<option value="Ball">Ball</option>
+								<option value="Hub" selected="selected" >Hub</option>
+							</select>
+						</div>
+					</td>
+					
+					</table>
+				</td>
+				
+				<td>
+					</br>
+					</br>
+					<div class="stream"  style="text-align:center" >
+						<p> <img style="width: 300px" src= "http://10.21.22.68:1181/stream.mjpg" id="videoStream2" onError='connError(this);' /></p>
+					</div>					
+				</td>
+					
+            </table>
+		  
+			<div class="Apply" style="text-align:center;margin-top: 30px;">
+				<button type="button" class="apply_settings" id="applyFiltering">Apply Changes</button>
+			</div>				
+
+          </div>
+		  
+          <!-- System Status -->
+          <div class="tab-pane" id="system-controls" role="tabpanel" aria-labelledby="system-control-tab" style="background-color:rgb(240,240,240);" >
+
+			<table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col" style="text-align:center;">Controls</th>
+                  <th scope="col" style="text-align:center; width: 400px;">Camera Feed</th>
+                </tr>
+              </thead>
+			
+ 			  <td>
+
+				</br>
+				<strong class="style-head">Debugging Controls</strong>
+				</br>
+				</br>
+				
+				<table class="camera_control_table" style="width: 100%" >
+					<td scope="col" style="width: 50%">
+						<div class="Debug_Attributes" style="margin-bottom: 30px;margin-left: 30px;">
+							<div>Debug Mode : <input type="checkbox" style="margin-bottom: 15px;" id="debugMode"></div>
+							<div>Capture Mode : <input type="checkbox" style="margin-bottom: 15px;" id="captureMode"></div>
+							<div>Capture Increment : <input type="number" style="text-align: center; margin-bottom: 15px;width: 100px" value="4" id="captureIncrement"></div>
+							<div>Debug FileName : <input type="text" value="EWS_Capture" style="margin-bottom: 15px;width: 100%;" id="debugFilename"></div>
+						</div>
+						
+					</td>
+
+					<td scope="col" style="width: 50%">						
+						<div class="Debug_Attributes" style="margin-bottom: 30px;margin-left: 30px;">
+							<div>Enable Multi-Threading : <input id="multi_thread" style="margin-bottom: 15px;" type="checkbox"></div>
+							<div>Enable Executor Service : <input id="executor_service" style="margin-bottom: 15px;" type="checkbox"></div>
+							<div>Number of Threads : <input type="number" value="4" style="width: 100px; text-align: center" id="numberOfThreads"></div>
+						</div>
+					</td>					
+				</table>
+				
+				<strong class="style-head">Vision Controls</strong>
+				</br>
+				</br>
+				
+				<table class="camera_control_table" style="width: 100%" >
+					<td scope="col" style="width: 50%">
+
+						<div class="Debug_Attributes" style="margin-bottom: 30px;margin-left: 30px;">
+							<div>
+								<input id="visionLEDstatus" style="margin-bottom: 15px" type="checkbox"> Enable LED
+								</div>
+							<div>
+								LED Brightness  : <input type="number" value="0.25" min="0" max="1" step="0.05" id=	"visionLEDbrightness" style="margin-bottom: 10px; width: 100px; text-align:center;">
+							</div>
+							<br>
+							<button type="button" class="apply_settings" id="applySystem">Apply Changes</button>
+						</div>
+
+					</td>
+					<td scope="col" style="width: 50%">
+						<div class="Apply" style="text-align:center;margin-top: 10px;">
+							<button type="button" class="save_config" id="saveConfig">Save Configuration</button>
+						</div>
+						<div class="Apply" style="text-align:center;margin-top: 10px;">
+							<button type="button" class="load_config" id="loadConfig">Load Configuration</button>
+						</div>
+						<div class="Apply" style="text-align:center;margin-top: 10px;">
+							<button type="button" class="reset_config" id="resetConfig">Reset Configuration</button>
+						</div>
+						
+					</td>
+				</table>
+				
+              <!--
+			  <button id="networkSave" type="button" class="btn btn-primary" data-loading-text="<i class='spin'  data-feather='loader'></i> Saving" disabled>
+                <span data-feather="save"></span>
+                Save
+              </button>
+			  -->
+				
+				</td>
+				
+				<td>
+					</br>
+					</br>
+					<div class="stream"  style="text-align:center;" >
+						<p> <img style="width: 300px" src= "http://10.21.22.68:1181/stream.mjpg" id="videoStream3" onError='connError(this);' /></p>
+						<!-- <p> <img style="width: 75%" src= "http://10.21.22.68:1181/stream.mjpg" /></p> -->
+					</div>
+					<!--
+					<div class="stream">
+						<p> <img style="width: 75%" src= "http://10.21.22.68:1182/stream.mjpg" /></p>						
+					</div>
+					-->
+				</td>
+
+            </table>
+			  
+          </div>
+
+		  <!-- Turret Camera Status -->
+          <div class="tab-pane" id="turretcam-controls" role="tabpanel" aria-labelledby="turret-control-tab" style="background-color:rgb(240,240,240);" >
+			</br>
+			<strong class="style-head">Turret Camera Video Feed</strong>
+			</br>
+			<div class="stream"  style="text-align:center;" >
+				<p> <img style="width: 640px" src= "http://10.21.22.68:1181/stream.mjpg" id="videoStream4" onError='connError(this);' /></p>
+			</div>			  
+          </div>
+
+          <!-- BallCam Camera Status -->
+          <div class="tab-pane" id="ballcam-controls" role="tabpanel" aria-labelledby="ball-control-tab" style="background-color:rgb(240,240,240);" >
+			</br>
+			<strong class="style-head">Ball Camera Video Feed</strong>
+			</br>
+			<div class="stream"  style="text-align:center;" >
+				<p> <img style="width: 640px" src= "http://10.21.22.68:1182/stream.mjpg" id="videoStream5" onError='connError(this);' /></p>
+			</div>			  			  
+          </div>
+	  
+      </main>
+
+    </div>
+	
+    <footer class="app-footer" style="background:#ffffff; height:50px" >
+		
+		<table style="width: 100%" >
+			<td scope="col" style="width: 33%; text-align:left;" >
+				<div>
+					<a href="http://" target="_new">TatorVision</a>
+					<span>&copy; 2022 Team Tators</span>
+				</div>
+			</td>
+			<!--
+			<td scope="col" style="width: 33%; text-align:center;" >
+				<div class="Apply" style="text-align:center; 30px;">
+					<button type="button" class="apply_settings" id="applyAll">Apply All Changes</button>
+				</div>
+			</td>
+			-->
+			<td scope="col" style="width: 33%; text-align:right;" >
+				<div class="ml-auto">
+					<a href="https://github.com/" target="_new">v2022</a>
+				</div>
+			</td>
+    </footer>
+
+    <script type="text/javascript" src="jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="popper.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="coreui.min.js"></script>
+    <script type="text/javascript" src="feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+    <script type="text/javascript" src="tatorvision.js"></script>
+  </body>
+</html>
