@@ -1,0 +1,4 @@
+"min": "Minimum value of a parameter"
+"max": "Maximum value of a parameter"
+"type": "The type of the object (in Java)"
+"acceptableValues": "List of values that the value of the parameter must be in; ['a', 'b', 'c'] and if the value was 'a' that is acceptable, but 'd' is not"

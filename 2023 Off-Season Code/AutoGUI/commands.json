@@ -1,0 +1,27 @@
+{
+    "requiredPoint": [
+        {"name": "angle", "defaultValue": 0, "validationArguments": {"min": 0, "max": 360, "type": "double"}}
+    ],
+
+
+    "pickLeft": [],
+
+    "pickRight": [],
+
+    "unPickLeft": [],
+
+    "unPickRight": [],
+
+    "autoShoot": [],
+
+    "unShoot": [],
+
+    "None": [],
+
+    "lambdaLock": [
+        {"name": "vel/ang", "defaultValue": 0, "validationArguments": {"min": 0, "type": "double"}},
+        {"name": "isVelocity", "defaultValue": "true", "validationArguments": {"type": "boolean"}},
+        {"name": "time", "defaultValue": 0, "validationArguments": {"min": 0, "max": 5, "type": "double"}}
+    ]
+
+}

@@ -1,0 +1,202 @@
+{
+  "Name": "around_charging_station.json",
+  "Closed": "False",
+  "ControlPoints": [
+    {
+      "X": -7.513,
+      "Y": -1.872,
+      "Vx": 1.1330009229857414,
+      "Vy": -0.8463503462003543,
+      "order": 1
+    },
+    {
+      "X": -8.072,
+      "Y": -1.872,
+      "Vx": 8.659560562354934e-17,
+      "Vy": -1.4142135623730951,
+      "order": 1
+    },
+    {
+      "X": -7.513,
+      "Y": -1.872,
+      "Vx": -1.3420702797297277,
+      "Vy": 0.4459230474713891,
+      "order": 1
+    },
+    {
+      "X": -4.966,
+      "Y": -3.68,
+      "Vx": -1.0,
+      "Vy": 1.0000000000000002,
+      "order": 5
+    },
+    {
+      "X": -1.498,
+      "Y": -1.872,
+      "Vx": 8.659560562354934e-17,
+      "Vy": -1.4142135623730951,
+      "order": 5
+    },
+    {
+      "X": -4.966,
+      "Y": -3.68,
+      "Vx": -1.0,
+      "Vy": 1.0000000000000002,
+      "order": 5
+    },
+    {
+      "X": -7.513,
+      "Y": -1.872,
+      "Vx": -1.3420702797297277,
+      "Vy": 0.4459230474713891,
+      "order": 5
+    },
+    {
+      "X": -8.072,
+      "Y": -1.872,
+      "Vx": 8.659560562354934e-17,
+      "Vy": -1.4142135623730951,
+      "order": 1
+    },
+    {
+      "X": -5.18,
+      "Y": -1.872,
+      "Vx": -1.3420702797297277,
+      "Vy": 0.4459230474713891,
+      "order": 1
+    }
+  ],
+  "RequiredPoints": [
+    {
+      "X": -7.513,
+      "Y": -1.872,
+      "betweenWayPoints": "AUTO",
+      "args": {
+        "angle": 0.7853981633974483,
+        "angle-GUI": 45.0
+      },
+      "isNeeded": false
+    },
+    {
+      "X": -5.18,
+      "Y": -1.872,
+      "betweenWayPoints": "AUTO",
+      "args": {
+        "angle": 0.0,
+        "angle-GUI": 45.0
+      },
+      "isNeeded": false
+    }
+  ],
+  "WayPoints": [
+    {
+      "name": "273f",
+      "belongsTo": "self",
+      "X": -8.072,
+      "Y": -1.872,
+      "Speed": 1.0,
+      "Command": "autoShoot",
+      "betweenWayPoints": "2",
+      "args": {},
+      "isNeeded": true
+    },
+    {
+      "name": "273f [1]",
+      "belongsTo": "273f",
+      "X": -8.10235386226379,
+      "Y": -1.7418259177092903,
+      "Speed": 1.0,
+      "Command": "lambdaLock",
+      "betweenWayPoints": "2-3",
+      "args": {
+        "vel/ang": 0,
+        "isVelocity": "true",
+        "time": 0
+      },
+      "isNeeded": true
+    },
+    {
+      "name": "273f [2]",
+      "belongsTo": "273f",
+      "X": -8.109633153035366,
+      "Y": -1.6189073830972234,
+      "Speed": 1.0,
+      "Command": "unShoot",
+      "betweenWayPoints": "2-3",
+      "args": {},
+      "isNeeded": true
+    },
+    {
+      "name": "3151",
+      "belongsTo": "self",
+      "X": -8.072,
+      "Y": -1.872,
+      "Speed": 1.0,
+      "Command": "autoShoot",
+      "betweenWayPoints": "8",
+      "args": {},
+      "isNeeded": true
+    },
+    {
+      "name": "3151 [1]",
+      "belongsTo": "3151",
+      "X": -8.10235386226379,
+      "Y": -1.7418259177092903,
+      "Speed": 1.0,
+      "Command": "lambdaLock",
+      "betweenWayPoints": "8-9",
+      "args": {
+        "vel/ang": 0,
+        "isVelocity": "true",
+        "time": 0
+      },
+      "isNeeded": true
+    },
+    {
+      "name": "3151 [2]",
+      "belongsTo": "3151",
+      "X": -8.109633153035366,
+      "Y": -1.6189073830972234,
+      "Speed": 1.0,
+      "Command": "unShoot",
+      "betweenWayPoints": "8-9",
+      "args": {},
+      "isNeeded": true
+    },
+    {
+      "name": "f814",
+      "belongsTo": "self",
+      "X": -1.153,
+      "Y": -1.889,
+      "Speed": 1.0,
+      "Command": "pickRight",
+      "betweenWayPoints": "5",
+      "args": {},
+      "isNeeded": true
+    },
+    {
+      "name": "f814 [1]",
+      "belongsTo": "f814",
+      "X": -1.5737858860164282,
+      "Y": -1.9107596686913295,
+      "Speed": 1.0,
+      "Command": "requiredPoint",
+      "betweenWayPoints": "5-6",
+      "args": {
+        "angle": 0
+      },
+      "isNeeded": true
+    },
+    {
+      "name": "281c",
+      "belongsTo": "self",
+      "X": -7.513,
+      "Y": -1.872,
+      "Speed": 1.0,
+      "Command": "None",
+      "betweenWayPoints": "AUTO",
+      "args": {},
+      "isNeeded": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "screenLength": 1280,
+  "screenHeight": 620,
+  "minisculeFontSize": 5,
+  "tinyFontSize": 8,
+  "smallFontSize": 11,
+  "normalFontSize": 22,
+  "largeFontSize": 27,
+  "fieldImagePath": "images/field_image.png",
+  "fieldImageLength": 1162,
+  "fieldImageHeight": 546
+}
