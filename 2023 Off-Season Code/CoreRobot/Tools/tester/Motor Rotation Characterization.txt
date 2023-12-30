@@ -1,0 +1,30 @@
+
+0 Degree Value
+Distance is: 0.3209162080229052 <<
+Absolute Encoder: 0.3208920080223002 <<
+Relative Rotations: 0.375
+
+45 Degree
+Distance is: 0.44767581119189526 <<
+Absolute Encoder: 0.4477242111931053
+Relative Rotations : 31.874
+
+encoder_rotations_per_degree = 2.818493403795668e-03 ;
+motor_rotations_per_degree = 0.699977777777778 ;
+
+90 Degree
+Distance is: 0.5721702893042573 <<
+Absolute Encoder: 0.5715556142888903 <<
+Relative Rotations : 63.971
+
+encoder_rotations_per_degree = 2.785151180739890e-03 ;
+motor_rotations_per_degree = 0.706622222222222 ;
+
+% Arm Extension
+Rotations Full Extension = 86.027
+Length Full Extension = 24.375
+
+Rotations Min Extension = 0.357
+Length Min Extension = 0.875
+
+inches_per_rotation = 0.274308392669546 ;
