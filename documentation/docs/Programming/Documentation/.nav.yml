@@ -1,0 +1,5 @@
+nav:
+  - The Documentation Documentation: index.md
+  - MKDocs: mkdocs.md
+  - Deployment: deployment.md
+  - Nix: nix.md
