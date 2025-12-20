@@ -1,0 +1,57 @@
+site_name: Tator Tome
+
+plugins:
+  - excalidraw
+  - search
+  - awesome-nav
+  - macros:
+      include_dir: include
+
+# theme configuration
+theme:
+  logo: images/logo.png
+  favicon: images/logo.png
+  name: material
+  features:
+    - content.code.select
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  # support for embedding mermaid syntax
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  # syntax highlighting support
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+  # KaTeX support for formatting mathematical expressions
+  - pymdownx.arithmatex:
+      generic: true
+
+# more stuff necessary for katex
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js

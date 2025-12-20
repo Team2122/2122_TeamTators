@@ -418,3 +418,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Don't include Obsidian config.
+.obsidian
+
+# Don't include generated PDFs (VSCode extension makes these).
+*.pdf
