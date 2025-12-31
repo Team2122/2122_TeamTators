@@ -1,0 +1,144 @@
+@startuml
+
+skinparam actorStyle hollow
+actor "Driver" as driver
+participant "Robot\n.java" as robot
+participant "Climber\n.java" as clmb
+participant "Pivot\n.java" as pivt
+participant "UpperNotePath\n.java" as unpa
+control "Trap\nsubstate\nmachine" as ssm
+participant "KingRollers\n.java" as king
+participant "ArmExtension\n.java" as armx
+
+!procedure $insert_participants()
+rnote over robot #e3e1f0: robot
+/rnote over clmb #e3e1f0: climber
+/rnote over pivt #e3e1f0: pivot
+/rnote over ssm #e3e1f0: substate\nmachine
+/rnote over unpa #e3e1f0: upper note path
+/rnote over king #e3e1f0: king rollers
+/rnote over armx #e3e1f0: arm ext
+!endprocedure
+
+== step one (climber & upper note path prep) ==
+driver -> robot: (A) button
+activate robot
+robot -> clmb: goTo(PRE_CLIMB)
+activate clmb
+
+robot -> unpa: startTrap
+activate unpa
+
+unpa o-> unpa: INTERRUPT to TRAP
+unpa -> ssm: start
+activate ssm
+ssm o-> ssm: INTERRUPT to PREPARE
+ssm -> unpa: flipDiverterUp
+
+clmb o-> clmb: INTERRUPT to MOVING
+rnote over clmb: in position
+clmb o-> clmb: state to IN_POSITION
+robot <- clmb: end goTo
+deactivate clmb
+
+rnote over ssm: diverter in position
+ssm o-> ssm: state to WAIT
+robot <- ssm: end startTrap
+deactivate unpa
+
+deactivate robot
+
+
+== step two (note stow) ==
+$insert_participants()
+
+driver -> robot: (X) button
+activate robot
+
+robot -> unpa: midTrap
+activate unpa
+robot -> king: feed
+activate king
+robot -> pivt: goTo(TRAP)
+activate pivt
+pivt o-> pivt: INTERRUPT to MOVING
+
+unpa -> ssm: midTrap
+ssm o-> ssm: INTERRUPT to STOWING
+ssm -> unpa: setShooterSpeeds(AMP)
+
+king o-> king: INTERRUPT to FEED
+
+rnote over king: safetySensor false
+king o-> king: state to EMPTY
+robot <- king: end feed
+deactivate king
+
+rnote over ssm: dunkerSensor true
+ssm o-> ssm: state to STOWED
+ssm -> unpa: setShooterSpeeds(STOPPED)
+robot <- ssm: end midTrap
+deactivate unpa
+
+rnote over pivt: in position
+pivt o-> pivt: state to IN_POSITION
+robot <- pivt: end goTo
+deactivate pivt
+
+
+== step three (extension) ==
+$insert_participants()
+
+robot -> armx: goTo(TRAP)
+activate armx
+armx o-> armx: INTERRUPT to MOVING
+
+rnote over armx: in position
+armx o-> armx: state to IN_POSITION
+robot <- armx: end goTo
+deactivate armx
+
+
+== step four (climb) ==
+$insert_participants()
+
+driver -> robot: (B) button
+activate robot
+
+robot -> clmb: goTo(CLIMB)
+activate clmb
+clmb o-> clmb: INTERRUPT to MOVING
+rnote over clmb: in position
+clmb o-> clmb: state to IN_POSITION
+robot <- clmb: end goTo
+deactivate clmb
+deactivate robot
+
+
+deactivate robot
+
+
+== step five (dunk) ==
+$insert_participants()
+
+driver -> robot: (Y) button
+activate robot
+robot -> unpa: endTrap
+activate unpa
+unpa -> ssm: endTrap
+ssm o-> ssm: INTERRUPT to DROP
+ssm -> unpa: setDunkerVoltage
+ssm -> unpa: setShooterSpeeds(AMP)
+rnote over ssm: dunker sensor true
+ssm o-> ssm: state to ALMOSTOUT
+rnote over ssm: dunker sensor false
+rnote over ssm: delay
+ssm o-> ssm: state to DONE
+unpa <- ssm: done
+deactivate ssm
+unpa o-> unpa: state to IDLE
+robot <- unpa: end endTrap
+deactivate unpa
+deactivate robot
+
+@enduml
