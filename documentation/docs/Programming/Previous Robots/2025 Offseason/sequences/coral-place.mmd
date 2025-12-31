@@ -1,0 +1,35 @@
+sequenceDiagram
+    actor Driver as Driver
+    participant Robot as Robot.java
+    participant Swerve as Swerve.java
+    participant Overwatcher as Overwatcher.java
+    participant Affector as Affector.java
+
+    Driver->>Robot: driver presses  button
+    activate Robot
+    Robot->>Swerve: driveTo(REEF) command scheduled
+    activate Swerve
+
+    Robot->>Overwatcher: goTo(PREP_POSITION)
+    activate Overwatcher
+
+    Note over Swerve,Overwatcher: Wait until both reach positions
+
+    Overwatcher-->>Robot: goTo(PREP_POSITION) done
+    Swerve-->>Robot: driveTo(REEF) done
+
+    Robot->>Overwatcher: goTo(PLACE_POSITION)
+    Note over Overwatcher: Overwatcher moves to place position
+
+    Overwatcher-->>Robot: goTo(PLACE_POSITION) done
+
+    Robot->>Overwatcher: goTo(HOME)
+    Robot->>Affector: checkCoral() command scheduled
+    Affector-->>Robot: checkCoral() command finished.
+
+    Note over Overwatcher: Overwatcher returns home. This rips the coral out of the affector.
+    Overwatcher-->>Robot: goTo(HOME) done
+
+    deactivate Overwatcher
+    deactivate Swerve
+    deactivate Robot
