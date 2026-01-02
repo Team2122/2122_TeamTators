@@ -1,0 +1,24 @@
+@startuml
+actor "Driver" as driver
+participant "Robot\n.java" as robot
+participant "Lift\n.java" as lift
+participant "AlgaeAffector\n.java" as algae
+
+driver -> robot: (TBD) button
+activate robot
+
+robot -> lift: goto(ALGAEL1/ALGAEL2) command
+activate lift
+rnote over lift: lift has reached\ntarget position
+lift -> robot: goto(ALGAEL1/ALGAEL2) command ends
+deactivate lift
+
+robot -> algae: turnOn() command
+activate algae
+rnote over algae: algae picked
+algae -> robot: turnOn() command ends
+deactivate algae
+
+deactivate robot
+
+@enduml
