@@ -1,0 +1,27 @@
+angle 0.08 height 50.74 l4 prep
+angle 0 height same l4 place
+
+angle -0.9 height 22.35 l3 prep
+angle -0.99 height same l3 place
+
+angle -0.917 height 11.22 l2 prep
+angle -1.023 height same l2 place
+
+angle -0.107 height 25.155 l1 place
+
+(7.2, 50.74)
+(0, same)
+(-81, 22.35)
+(-89.1, same)
+(-82.53, 11.22)
+(-92.07, same)
+(-9.629999999999999, 25.155)
+
+
+28.8
+0
+36
+3.6
+29.88
+-8.28
+-38.52
