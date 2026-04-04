@@ -1,5 +1,24 @@
 # 3D Models in AdvantageScope
 
+## Table of Contents:
+* [Documentation and Downloads](#other-documentation-and-downloads)
+* [Where to get models](#where-to-get-models)
+* [Exporting models from Onshape](#exporting-models-from-onshape)
+* [Configuring and Exporting in CAD Assistant](#configuring-and-exporting-in-cad-assistant)
+* [Combining Files in CAD Assistant](#combining-files-in-cad-assistant)
+* [Moving Things Around in CAD Assistant](#moving-things-around-in-cad-assistant)
+* [Model Folder and Files](#folder-and-files)
+* [Naming Conventions and Model Descriptions](#naming-conventions-and-models)
+* [Configuring Articulated Components](#configuring-articulated-components)
+    * [Setting your Assets Folder](#setting-your-assets-folder)
+    * [Configuring Base Positions](#configuring-base-positions)
+* [Movement](#movement)
+    * [Rotation Movement](#rotation---finding-the-point-of-rotation)
+    * [Translation Movement](#translation---finding-the-starting-point)
+* [The Final Product](#the-final-product)
+
+
+
 ## Other documentation and downloads
 
 **It is extremely important to look at these documents, especially during your first creation of an articulated component!**
@@ -144,7 +163,7 @@ Click the + at the top right, and then 3d field. In the bottom right corner, set
 
 Drag in the DriverPose log, clicking the arrow icon and changing the model name to the name of your robot that you put in the config.json previously. Below the DriverPose log, drag your Zeroed Component Poses in. If the icon is green and says "Vision Target", click on it and change to a component.
 
-Drag one of these in for every component you are trying to add to your 3D model, and make sure they are where they should be on the robot. If they aren't, go back and tweak your config.json file.
+**Drag one of these in for every component you are trying to add to your 3D model**, and make sure they are where they should be on the robot. If they aren't, go back and tweak your config.json file.
 
 ![HowNestComponents](../../docs\images\NestedRobotPose.png)
 While a few things are different name-wise because this is from the [AdvantageScope documentation](https://docs.advantagescope.org/more-features/custom-assets/), the above picture shows an example of that your Zeroed Components will look like in logging before being configured. (**Remember! The AdvantageScope Documentation contains very important info not covered here!**)
