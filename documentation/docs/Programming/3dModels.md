@@ -16,7 +16,6 @@ This is the main resource besides this very file you are in now that explains im
 
 The WPI-Lib documentation regarding the different methods used in the movement of articulated components.
 
-
 * [CAD Assistant Download](https://dev.opencascade.org/project/cad-assistant)
 
 This program is the middleman in between Onshape and VS Code.
@@ -74,7 +73,6 @@ This often means that you need to combine other files into one another to put th
 Then, select the folder icon on the left side and click the button labelled "Add to Current Document" on the bottom tab of the page. **You must do this BEFORE opening up the file you are trying to combine your base model with.**
 
 Click on the file you are trying to combine, and it should appear on your base model. If it isn't where it should be, see the tutorial below.
-
 
 ### Moving things around in CAD Assistant
 
@@ -186,8 +184,6 @@ this is an example of a rotation point. Notice both positive and negative values
 
 ![Rotation Example](../../docs\images\RotationEx.png)
 
-
-
 #### Translation - Finding the starting point
 
 * Create a Translation 3d, setting the X, Y, and Z values to your startingPoint.getX(), startingPoint.getY(), and startingPoint.getZ() respectively. 
@@ -201,9 +197,6 @@ this is an example of a rotation point. Notice both positive and negative values
 
     ![Translation Example](../../docs\images\TranslationEx.png)
 
-
-
-
 #### Testing
 * Bind the subsystem moving to a new desired position to a button on the driver controller and test it out in simulation!
     * use "driverController.button().onTrue(...);"
@@ -214,14 +207,3 @@ this is an example of a rotation point. Notice both positive and negative values
 Hopefully, you should have a 3d Simulation of the robot!
 Here is an example of what it should look like, with parts able to move up and down when you make the desired position of their subsystems change.
  ![Final Bot](../../docs\images\EpicRobot.png)
-
-
-
-
-
-
-
-
-
-
-
