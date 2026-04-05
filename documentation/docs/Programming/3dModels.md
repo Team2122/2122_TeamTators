@@ -43,7 +43,7 @@ This program is the middleman in between Onshape and VS Code.
 
 The models for our robot and its components are found in our shared Onshape library.
 
-**NOTE**: In order to access this library, your account needs to be invited.
+**NOTE**: In order to access this library, your account needs to be invited. In order to get invited, talk to Dylan Macmaster, who sends the invites via email.
 
 When you sign into Onshape, you should see this library if you were correctly invited and also accepted the invite:
 ![Sign in page with our frc library](../../docs\images\OnshapeLibrary.png)
@@ -68,7 +68,7 @@ You do not really need to do anything else in the export menu apart from exporti
 
 <!-- Note: This will need to be updated if we get a better CAD configuring and exporting software, as CAD assistant is...bad. Blender seems a bit complex for this task, but it could be an option. Preferably, a tool available across all OS would be best. -->
 
-Once you have your file exported from Onshape, you can't quite put it into VS Code yet. Instead, you must download CAD Assistant, a program that lets you export to .glb files.
+Once you have your file exported from Onshape, you can't quite put it into VS Code yet. Instead, you must [download CAD Assistant]((https://dev.opencascade.org/project/cad-assistant)), a program that lets you export to .glb files.
 
 This program is also what we use for extra configuration of the models. (ie. Adding a non-moving component onto the [base model](#naming-conventions-and-models)). However, CAD Assistant is very limited in this aspect, making it hard to work with at times.
 
@@ -85,7 +85,7 @@ Once exported, **the file will not be able to be viewed when clicked in the VS c
 
 ### Combining files in CAD Assistant
 
-The base model for our robot should contain all parts that don't need to move separately from the robot (For example, the driverbase does not have any parts that move, while the picker does)
+The base model for our robot should contain all parts that don't need to move separately from the robot (For example, the 2026 robot model's driverbase does not have any parts that move, while the picker can rotate up and down)
 
 This often means that you need to combine other files into one another to put them on one model. To do this. Open up your current [model.glb](#naming-conventions-and-models).
 
