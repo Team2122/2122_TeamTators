@@ -1,24 +1,5 @@
 # 3D Models in AdvantageScope
 
-## Table of Contents:
-* [Documentation and Downloads](#other-documentation-and-downloads)
-* [Where to get models](#where-to-get-models)
-* [Exporting models from Onshape](#exporting-models-from-onshape)
-* [Configuring and Exporting in CAD Assistant](#configuring-and-exporting-in-cad-assistant)
-* [Combining Files in CAD Assistant](#combining-files-in-cad-assistant)
-* [Moving Things Around in CAD Assistant](#moving-things-around-in-cad-assistant)
-* [Model Folder and Files](#folder-and-files)
-* [Naming Conventions and Model Descriptions](#naming-conventions-and-models)
-* [Configuring Articulated Components](#configuring-articulated-components)
-    * [Setting your Assets Folder](#setting-your-assets-folder)
-    * [Configuring Base Positions](#configuring-base-positions)
-* [Movement](#movement)
-    * [Rotation Movement](#rotation---finding-the-point-of-rotation)
-    * [Translation Movement](#translation---finding-the-starting-point)
-* [The Final Product](#the-final-product)
-
-
-
 ## Other documentation and downloads
 
 **It is extremely important to look at these documents, especially during your first creation of an articulated component!**
@@ -37,13 +18,13 @@ The WPI-Lib documentation regarding the different methods used in the movement o
 
 * [CAD Assistant Download](https://dev.opencascade.org/project/cad-assistant)
 
-This program is the middleman in between Onshape and VS Code.
+This program is the middleman in between Onshape and AdvantageScope.
 
 ## Where to get models
 
 The models for our robot and its components are found in our shared Onshape library.
 
-**NOTE**: In order to access this library, your account needs to be invited. In order to get invited, talk to Dylan Macmaster, who sends the invites via email.
+**NOTE**: In order to access this library, your account needs to be invited. In order to get invited, talk to the menotr who teaches the CAD class in the fall, who sends the invites via email.
 
 When you sign into Onshape, you should see this library if you were correctly invited and also accepted the invite:
 ![Sign in page with our frc library](../../docs\images\OnshapeLibrary.png)
@@ -74,10 +55,10 @@ This program is also what we use for extra configuration of the models. (ie. Add
 
 In most cases, you can simply open up your .STEP file, press the Save icon (floppy disk on left hand side), and press export as  a .glb file. At times (such as the example previously mentioned) though, you might need to move components around. 
 ![WhereSave](../../docs\images\WhereSaveButton.png)
-Location of the Save button
+> Location of the Save button
 
 ![WhereExport](../../docs\images\WhereExport.png)
-What to export as
+> What to export as
 
 **NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. These are **not** used in our process, so please do not export into VS Code as a glTF. It will not work.
 
@@ -85,11 +66,13 @@ Once exported, **the file will not be able to be viewed when clicked in the VS c
 
 ### Combining files in CAD Assistant
 
-The base model for our robot should contain all parts that don't need to move separately from the robot (For example, the 2026 robot model's driverbase does not have any parts that move, while the picker can rotate up and down)
+The base model for our robot should contain all parts that don't need to move separately from the robot (For example, the 2026 robot model's drivebase does not have any parts that move, while the picker can rotate up and down)
 
 This often means that you need to combine other files into one another to put them on one model. To do this. Open up your current [model.glb](#naming-conventions-and-models).
 
 Then, select the folder icon on the left side and click the button labelled "Add to Current Document" on the bottom tab of the page. **You must do this BEFORE opening up the file you are trying to combine your base model with.**
+![FolderIcon](../../docs\images\FolderIcon.png)
+![AddToCurrent](../../docs\images\AddToCurrent.png)
 
 Click on the file you are trying to combine, and it should appear on your base model. If it isn't where it should be, see the tutorial below.
 
@@ -97,7 +80,7 @@ Click on the file you are trying to combine, and it should appear on your base m
 
 This can be done with a .STEP file just exported or, a .glb file currently in the code. 
 
-**CAD Assistant was not exactly designed for preforming this task**, but it is still possible. However, you should **try to avoid moving things around in CAD Assistant whenever you can**. One way to do this is to import the entire Robot Master and individually deleting non-static components from it, leaving only pieces that don't move.
+As CAD Assistant is a relatively simple software designed for exporting, it doesn't have the best tools for moving around the models, so it can be irritating to do so. It's recommended to avoid moving the components around when you can, for example by individually deleting the parts that need to move separately from the drivebase when creating your model.glb.
 
 First, click any piece of the component you are trying to move. Press the button on the right-hand side that when hovered on reads **"Select Parent."**
 
@@ -112,7 +95,7 @@ After all parts of the component you want to be moved are selected, click the ic
 
 ![MoveComponent](../../docs\images\CADmove.png)
 
-Arrows for the X, Y, and Z axis should appear in red, green and blue. You can use these arrows to position the part to where it needs to go.
+Arrows for the X, Y, and Z axis should appear in red, green and blue. If these appear on the main model and not the part(s) you are trying to move, press Identity again. You can use these arrows to position the part to where it needs to go.
 
 Unfortunately, CAD Assistant is very finnicky about this part. You can position the component with these arrows, but it will not save this position. to get it to save the position, you must click a point in space to move the component to. 
 
@@ -124,13 +107,13 @@ Saving your model is the same proccess as [Exporting](#configuring-and-exporting
 
 ## Folder and Files
 
-Next, **create a new folder** in VS Code. This is where your assets will be held. Inside that folder, create another new folder. **If you do not do this, then AdvantageScope cannot read the files**. You must name the nested folder "Robot_", and then whatever name you like. In your Robot_ file, it will have the config.json, as well as all your models. For details on setting up your config.json, watch the video on this page [here](https://docs.advantagescope.org/more-features/custom-assets/).
+Next, **create a new folder** in VS Code. In the 2026 code for example, this folder is named AdvantageScopeAssets, and is just under 2026_timetator and not nested in another folder like src. This is where your assets will be held. Inside that folder, create another new folder. **If you do not do this, then AdvantageScope cannot read the files**. You must name the nested folder "Robot_", and then whatever name you like. In your Robot_ folder, it will have the config.json, as well as all your models. For details on setting up your config.json, watch the video on this page [here](https://docs.advantagescope.org/more-features/custom-assets/).
 
 ### Naming Conventions and Models
 
-**A component should only be its own model if it moves separately from the robot**, such as a picker or a rotating turret. Each of your models should be named like as such:
+**A component should only be its own model if it moves separately from the robot**, such as a rotating picker or turret. Each of your models should be named as such:
 
-* **model.glb** - This is your base model, where every part that doesn't move separately goes. This includes things like the driverbase or where the game pieces are stored. If you need to add another part in order to update this, see [Combining Files in Cad Assistant](#combining-files-in-cad-assistant).
+* **model.glb** - This is your base model, where every part that doesn't move separately goes. This includes things like the drivebase and other parts that don't rotate or move up and down. If you need to add another part in order to update this, see [Combining Files in Cad Assistant](#combining-files-in-cad-assistant).
 
 * **model0.glb** - This is your first separately moving component. From 0, the number increases (ie: model1.glb, model2.glb...)
 
@@ -145,23 +128,24 @@ To keep track of your different models, create variables in the config.json that
 ### Setting your Assets folder
 Simulate your code and open up AdvantageScope. Click "App", and then "Use Custom Assets Folder".
 
-Copy the path of the folder that holds your [Robot_](#folder-and-files) file, and set that as your assets folder.
+Copy the path of the folder that holds your [Robot_](#folder-and-files) folder, and set that as your assets folder.
 
 ### Configuring base positions
 
-Now, we get to the most important part of the process: putting your models into action. For now, put the following log into your code:
+Now, we get to the most important part of the process: putting your models into action. For now, put the following log into your RobotPeriodic() in Robot.java:
 
+```
 Logger.recordOutput("Zeroed Component Poses", new Pose 3d[] {new Pose 3d()});
+```
 
 What this does:
 
 * Creates what is called a pose 3d, which, as the name suggests, is the current pose of the object in a 3d space
 
-* "Zeroed" in this case means that it will be based off of your config.json file positions
-
 Click the + at the top right, and then 3d field. In the bottom right corner, set the field to Axes and zoom in on the robot model. (Right now, it is likely a KitBot. We will change this in just a second)
 
-Drag in the DriverPose log, clicking the arrow icon and changing the model name to the name of your robot that you put in the config.json previously. Below the DriverPose log, drag your Zeroed Component Poses in. If the icon is green and says "Vision Target", click on it and change to a component.
+Drag in the Drive/Pose key, clicking the arrow icon and changing the model name to the name of your robot that you put in the config.json previously. Below the Drive/Pose key, drag your Zeroed Component Poses in.
+<!-- SHOW PIC OF DRAGGING IN --> If the icon is green and says "Vision Target", click on it and change to a component. 
 
 **Drag one of these in for every component you are trying to add to your 3D model**, and make sure they are where they should be on the robot. If they aren't, go back and tweak your config.json file.
 
