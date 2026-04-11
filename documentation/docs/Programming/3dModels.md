@@ -119,7 +119,7 @@ Next, **create a new folder** in VS Code. In the 2026 code for example, this fol
 
 **NOTE**:  In your `config.json`, the componenets must be in the same order as your models. If a component's file is named `model1.glb`, it cannot be first in the array.
 
-To keep track of your different models, create variables in the config.json that signify the model number and name, such as seen in the components example below.
+To keep track of your different models, create variables in the `config.json` that signify the model number and name, such as seen in the components example below.
 
 ![Components Example](../../docs\images\ComponentsExample.png)
 
@@ -144,13 +144,13 @@ What this does:
 
 Click the + at the top right, and then 3d field. In the bottom right corner, set the field to Axes and zoom in on the robot model. (Right now, it is likely a KitBot. We will change this in just a second)
 
-Drag in the Drive/Pose key. Once it is in the Poses box, click the arrow icon next to its name select the model name of your robot that you put in the `config.json` previously. Below the Drive/Pose key, drag your Zeroed Component Poses in.
+Drag in the Drive/Pose key. Once it is in the Poses box, click the arrow icon next to its name and select the model name of your robot that you put in the `config.json` previously. Below the Drive/Pose key, drag your Zeroed Component Poses in.
 ![Drag in Right](../../docs\images\ProperNesting.png)
 > Made sure that when you are dragging it in, only the Drive/Pose is highlighted, not the entire Poses box.
 
 Once dragged in, if the icon is green and says "Vision Target", click on it and change to a component. 
 
-**Drag one of these in for every component you are trying to add to your 3D model**, and make sure they are where they should be on the robot. If they aren't, go back and tweak your config.json file.
+**Drag one of these in for every component you are trying to add to your 3D model**, and make sure they are where they should be on the robot. If they aren't, go back and tweak your `config.json` file.
 
 
 ### Movement
