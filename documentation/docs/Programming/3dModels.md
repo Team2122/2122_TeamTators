@@ -24,7 +24,7 @@ The following are other pieces of documentation needed to create models and arti
 
 The models for our robot and its components are found in our shared Onshape library.
 
-**NOTE**: In order to access this library, your account needs to be invited. In order to get invited, talk to the menotr who teaches the CAD class in the fall, who sends the invites via email.
+**NOTE**: In order to access this library, your account needs to be invited. In order to get invited, talk to the mentor who teaches the CAD class in the fall, who sends the invites via email.
 
 When you sign into Onshape, you should see this library if you were correctly invited and also accepted the invite:
 ![Sign in page with our frc library](../../docs\images\OnshapeLibrary.png)
@@ -49,7 +49,7 @@ You do not really need to do anything else in the export menu apart from exporti
 
 <!-- Note: This will need to be updated if we get a better CAD configuring and exporting software, as CAD assistant is...bad. Blender seems a bit complex for this task, but it could be an option. Preferably, a tool available across all OS would be best. -->
 
-Once you have your file exported from Onshape, you can't quite put it into your AdvantageScope Assets folder yet. Instead, you must [download CAD Assistant]((https://dev.opencascade.org/project/cad-assistant)), a program that lets you export to .glb files.
+Once you have your file exported from Onshape, you can't quite put it into your AdvantageScope assets folder yet. Instead, you must [download CAD Assistant]((https://dev.opencascade.org/project/cad-assistant)), a program that lets you export to .glb files.
 
 This program is also what we use for extra configuration of the models. (ie. Adding a non-moving component onto the [base model](#naming-conventions-and-models)). However, CAD Assistant is very limited in this aspect, making it hard to work with at times.
 
@@ -60,7 +60,7 @@ In most cases, you can simply open up your .STEP file, press the Save icon (flop
 ![WhereExport](../../docs\images\WhereExport.png)
 > What to export as
 
-**NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. **Don't export to your AdvantageScope Assets folder in this format.** In their process, they store the models as glTF files before exporting, which we chose not to do here. Either way, AdvantageScope can't read the glTF files.  
+**NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. **Don't export to your AdvantageScope Assets folder in this format.** In their process, they store the models as glTF files before exporting to their assets folder, which we chose not to do here. Either way, AdvantageScope can't read the glTF files.  
 
 Once exported, **the file will not be able to be viewed when clicked in the VS code editor!** Do not panic. This does not mean its broken, nor does it mean you should be using a glTF file instead. The VS code editor just cant process .glb files, since they are in binary.
 
@@ -80,7 +80,7 @@ Click on the file you are trying to combine, and it should appear on your base m
 
 This can be done with a .STEP file just exported or, a .glb file currently in the code. 
 
-As CAD Assistant is a relatively simple software designed for exporting, it doesn't have the best tools for moving around the models, so it can be irritating to do so. It's recommended to avoid moving the components around when you can, for example by individually deleting the parts that need to move separately from the drivebase when creating your model.glb.
+As CAD Assistant is a relatively simple software designed for exporting, it doesn't have the best tools for moving around the models, so it can be irritating to do so. It's recommended to avoid moving the components around when you can, for example by exporting the RobotMaster, then individually deleting the parts that need to move separately from the drivebase when creating your model.glb.
 
 First, click any piece of the component you are trying to move. Press the button on the right-hand side that when hovered on reads **"Select Parent."**
 
@@ -107,7 +107,7 @@ Saving your model is the same proccess as [Exporting](#configuring-and-exporting
 
 ## Folder and Files
 
-Next, **create a new folder** in VS Code. In the 2026 code for example, this folder is named AdvantageScopeAssets, and is just under 2026_timetator, not nested in another folder like src. This is where your assets will be held. Inside that folder, create another new folder. **If you do not do this, then AdvantageScope cannot read the files**. You must name the nested folder "Robot_", and then whatever name you like. In your Robot_ folder, it will have the config.json, as well as all your models. For details on setting up your config.json, watch the video on this page [here](https://docs.advantagescope.org/more-features/custom-assets/).
+Next, **create a new folder** in VS Code. In the 2026 code for example, this folder is named `AdvantageScopeAssets`, and is just under `2026_timetator`, not nested in another folder like `src`. This is where your assets will be held. Inside that folder, create another new folder. **If you do not do this, then AdvantageScope cannot read the files**. You must name the nested folder `Robot_`, and then whatever name you like. In your `Robot_` folder, it will have the `config.json`, as well as all your models. For details on setting up your `config.json`, watch the video on this page [here](https://docs.advantagescope.org/more-features/custom-assets/).
 
 ### Naming Conventions and Models
 
@@ -117,7 +117,7 @@ Next, **create a new folder** in VS Code. In the 2026 code for example, this fol
 
 * **model0.glb** - This is your first separately moving component. From 0, the number increases (ie: model1.glb, model2.glb...)
 
-**NOTE**:  In your config.json, the componenets must be in the same order as your models. If a component's file is named model1.glb, it cannot be first in the array.
+**NOTE**:  In your `config.json`, the componenets must be in the same order as your models. If a component's file is named `model1.glb`, it cannot be first in the array.
 
 To keep track of your different models, create variables in the config.json that signify the model number and name, such as seen in the components example below.
 
@@ -144,11 +144,11 @@ What this does:
 
 Click the + at the top right, and then 3d field. In the bottom right corner, set the field to Axes and zoom in on the robot model. (Right now, it is likely a KitBot. We will change this in just a second)
 
-Drag in the Drive/Pose key, clicking the arrow icon and changing the model name to the name of your robot that you put in the config.json previously. Below the Drive/Pose key, drag your Zeroed Component Poses in.
+Drag in the Drive/Pose key. Once it is in the Poses box, click the arrow icon next to its name select the model name of your robot that you put in the `config.json` previously. Below the Drive/Pose key, drag your Zeroed Component Poses in.
 ![Drag in Right](../../docs\images\ProperNesting.png)
-> Made sure that when you are dragging it in, only the Robot pose is highlighted and not the entire poses box.
+> Made sure that when you are dragging it in, only the Drive/Pose is highlighted, not the entire Poses box.
 
-If the icon is green and says "Vision Target", click on it and change to a component. 
+Once dragged in, if the icon is green and says "Vision Target", click on it and change to a component. 
 
 **Drag one of these in for every component you are trying to add to your 3D model**, and make sure they are where they should be on the robot. If they aren't, go back and tweak your config.json file.
 
@@ -162,7 +162,7 @@ In the `log()` of the subsystem of the component you want to move, you need to d
 
 * Make sure that the Robot is being simulated, so the code doesn't create a bunch of things it doesn't need while the robot is actually running
 
-    * Below is how to check that you are in simulation mode:
+    * Below is how to check that your roobot is not currently running in real life. This can also be used for replay:
     ```
     if(Constants.ROBOT_MEDIUM != RobotMedium.REAL){
         //...
