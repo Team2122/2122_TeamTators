@@ -12,7 +12,7 @@ When the robot's code is modified during a competition, we back up the new code 
     - Press `CHOOSE OS`, select *Use custom* at the bottom of the list, and select the .zip you found above.
     - Press `CHOOSE STORAGE` and select the SD card (usually appears as "SDHC Card").
     - Press `NEXT`, answer `NO` to the customization question, and, after confirming that the SD card is the device named, confirm `YES` to the erasure warning.    
-    <img src="../images/RaspberryPiImager-Warning.png" width=550>
+      <img src="../images/RaspberryPiImager-Warning.png" width=550>
     - Wait for the flashing to finish.
 
 # Number Setting and Code Deploying
