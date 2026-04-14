@@ -60,7 +60,7 @@ In most cases, you can simply open up your .STEP file, press the Save icon (flop
 ![WhereExport](../../docs\images\WhereExport.png)
 > What to export as
 
-**NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. **Don't export to your AdvantageScope Assets folder in this format.** In their process, they store the models as glTF files before exporting to their assets folder, which we chose not to do here. Either way, AdvantageScope can't read the glTF files.  
+**NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. **Don't export to your AdvantageScope Assets folder in this format.** AdvantageScope reads files in binary form, and glb is the binary form of glTF. Importing as a glTF file will make it unreadable by AdvantageScope, so don't do it!
 
 Once exported, **the file will not be able to be viewed when clicked in the VS code editor!** Do not panic. This does not mean its broken, nor does it mean you should be using a glTF file instead. The VS code editor just cant process .glb files, since they are in binary.
 
