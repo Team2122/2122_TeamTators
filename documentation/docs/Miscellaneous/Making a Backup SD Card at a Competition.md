@@ -12,7 +12,7 @@ When the robot's code is modified during a competition, we back up the new code 
     - Press `CHOOSE OS`, select *Use custom* at the bottom of the list, and select the .zip you found above.
     - Press `CHOOSE STORAGE` and select the SD card (usually appears as "SDHC Card").
     - Press `NEXT`, answer `NO` to the customization question, and, after confirming that the SD card is the device named, confirm `YES` to the erasure warning.    
-    <img src="images/RaspberryPiImager-Warning.png" width=550>
+    <img src="../images/RaspberryPiImager-Warning.png" width=550>
     - Wait for the flashing to finish.
 
 # Number Setting and Code Deploying
@@ -24,7 +24,7 @@ When the robot's code is modified during a competition, we back up the new code 
 - Make sure you **never** insert or remove the SD card while the RIO is powered; this will most likely corrupt it. Powering off the RIO while deploying code is also not a good idea.
 1. Insert your flashed SD card and turn the RIO on.
 2. Connect to the RIO with a USB printer cable (A to B):  
-    ![A is the big rectangle one, B is the square with two corners cut off.](images/USB-A-to-B.png)
+    ![A is the big rectangle one, B is the square with two corners cut off.](../images/USB-A-to-B.png)
 3. Once the RIO is booted up, it should appear in the Driver Station software. (`No Robot Code` is fine, `No Robot Communication` is not)
 
 ## Setting the Team Number
@@ -52,7 +52,7 @@ When the robot's code is modified during a competition, we back up the new code 
 
 # Writing a Tag
 *Once an SD card is ready, we put a small tag on it so we know exactly what version of the code is on it.*   
-![](images/SDCard-Labeled.png)  
+![](../images/SDCard-Labeled.png)  
 *(Please write more legibly than this - I wrote this with a rather imprecise sharpie)*  
 
 ## Getting the info from gitTag
@@ -70,7 +70,7 @@ On the driver stations, there may be a Python script called `gitTag.py`. It's us
 
 ## Write it on a tag
 Here's what the areas on a full tag mean, plus an example:  
-![](images/GitTag-Template.png) ![](images/GitTag-Example.png)
+![](../images/GitTag-Template.png) ![](../images/GitTag-Example.png)
 - The **revision ID** is a number that says where in the history a commit is; e.g. `r380` is the 380th commit on this branch
 - The **hash** is some hexadecimal that uniquely identifies a commit across all branches
 - The **day** and **time** are just that - the tag above describes 8:59 pm on the 12th
@@ -82,6 +82,6 @@ Here's what the areas on a full tag mean, plus an example:
 4. Once written, fold the tape over the back of the SD card as pictured above (avoid the contacts).
 
 # And now you finally have an SD card ready for a rescue!
-![](images/SDCard-Labeled-Tada.png)  
+![](../images/SDCard-Labeled-Tada.png)  
 Now you just need to give it to Wibbels or another mentor on/near the drive team. If they've managed to survive since we got them in 2024, you can put it in the Just In Case<sub>(patent pending)</sub> for safekeeping.  
-![](images/JustInCase-Annotated.png)
+![](../images/JustInCase-Annotated.png)
