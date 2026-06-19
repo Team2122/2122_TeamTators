@@ -2,8 +2,8 @@
 
 ## Introduction
 
-The architecture spec describes the overall intended design of the 2025
-competition robot (tidaltator). This includes designs for the various algorithms
+The architecture spec describes the overall intended design of the 2024
+competition robot (conductator). This includes designs for the various algorithms
 and how various components should interact. This document should be readable
 without having any understanding of code, and should not be dependent on any
 particular code implementation.
