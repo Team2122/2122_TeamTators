@@ -5,7 +5,7 @@ This is an expansion of the project of adding the 3d model created in OnShape to
 
 This section covers the simulation of Fuel, the 2026 REBUILT game piece. It uses a [physics simulator](https://github.com/hammerheads5000/FuelSim) specific to the Fuel created by team 5000, HAMERHEADS, with some modifications to make it useful to our late-onseason bot, which didn't use a turret, but rather one long continuous "wall".
 
-Although, at the time of writing this, there is no implementation of collision between the robot and the field obstacles, the purpose of this project was to be able to have a pretty solid way to simulate shooting using the actual voltage and controller inputs, without needing the physical robot. This was done in order to allow programming to be able to test more things while the robot isn't available for one reason or another.
+Although there is no implementation of collision between the robot and the field obstacles, the purpose of this project was to be able to have a pretty solid way to simulate shooting using the actual voltage and controller inputs, without needing the physical robot. This was done in order to allow programming to be able to test more things while the robot isn't available for one reason or another.
 
 ## Components of Fuel Simulation
 As previously stated, the majority of the code used in simulating the robot comes from a lightweight library created by HAMMERHEADS. This allows us to spawn Fuel at any point on the field, intake it via our picker, and shoot it. This section covers how each of these tasks works on a basic level, as well as what values you need to do these things and where some of those values are found.
