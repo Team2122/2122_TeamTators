@@ -14,10 +14,13 @@ As previously stated, the majority of the code used in simulating the robot come
 <summary> Spawning FUEL </summary>
 
 Using the function `spawnStartingFuel()` spawns the FUEL in a rectangular grid at the center of the field, as well as the FUEL inside the depot. FUEL inside the outpost is not spawned however, since there is no way to release the FUEL from inside anyway.
+<br>
 
 You can also spawn FUEL individually using the `spawnFuel()` function, which takes the position and velocity as `Translation3d` values, and is what is used for launching FUEL.
+<br>
 
 Both of these add FUEL to the `fuels` array, which is needed to do things like removing FUEL or checking if FUEL is able to be picked.
+<br>
 
 There is no need to import a new FUEL model, as there is one automatically in AdvantageScope.
 You do not need any additional values to spawn FUEL.
@@ -27,10 +30,14 @@ You do not need any additional values to spawn FUEL.
 <summary> Intaking FUEL </summary>
 
 A function called `shouldIntake()` returns a boolean checking if a given FUEL is between the minimum and maximum X and Y values for the picker, which represent length and width. Using this, we can check if every single FUEL on the field, which is stored in an array, is within those limits. If so, another function, `handleIntakes()`, removes them from the field and updates the FUEL count inside the hopper when given the array of FUEL as an argument.
+<br>
 
 To perform this task, you need...
-* The minimum and maximum X and Y values of how far the picker reaches outside of the robot. 
-> For the maximum X value, the length of the picker was added to the X value of the picker rotation point, or the minimum. For the Y min, this was negative value of the robot's length divided by 2, while the max is this value but positive. As the robot needs to be rotated 90 degrees about the X axis when being implemented into AdvantageScope to be facing upright, the Y value represents how wide the picker is rather than the height.
+<ul>
+<li> The minimum and maximum X and Y values of how far the picker reaches outside of the robot. </li>
+<br>
+    For the maximum X value, the length of the picker was added to the X value of the picker rotation point, or the minimum. For the Y min, this was negative value of the robot's length divided by 2, while the max is this value but positive. As the robot needs to be rotated 90 degrees about the X axis when being implemented into AdvantageScope to be facing upright, the Y value represents how wide the picker is rather than the height.
+</ul>
 
 </details>
 
@@ -38,21 +45,31 @@ To perform this task, you need...
 <summary> Shooting FUEL </summary>
 
 If you have one or more FUEL inside your hopper while giving the robot the input to shoot, a function called `launchFuel()` spawns the FUEL at a given point with X, Y, and Z values, then applies the linear velocity (in meters per second) and the shot angle. Since we use angular velocity for our flywheel's input, you must convert it from rotations per second to meters per second by performing the equation:
+<br>
 
 ```
 Radius of flywheel * rotations per second * 2π
 ```
+<br>
+
 In the onseason code for this simulation, we spawn the FUEL at 3 points along the shooter "wall", since more than one FUEL are shot at once. This is just done by calling the `launchFuel()` function 3 different times in the same method, `launchTripleShot()`.
 
+<br>
+
 When the hopper contains 1-2 FUEL instead of 3, `launchSingleShot()` is called instead, calling `launchFuel()` only once with the location of the center of the shooter as the location arguments.
+<br>
 
 To use this function, you need...
-* Rotation of flywheel in MPS
-* Radius of flywheel
-* Spawn point of the FUEL
-* Shot angle
+<ul>
+<li> Rotation of flywheel in MPS </li>
+<li> Radius of flywheel </li>
+<li> Spawn point of the FUEL </li>
+<li> Shot angle </li>
+</ul>
 
-> In the code for the 2026 onseason robot, the shot angle is found through trial and error, and ranges from 0 to 90 degrees, where 0 degrees is shooting directly upwards and 90 degrees is completely horizontal.
+<br>
+
+In the code for the 2026 onseason robot, the shot angle is found through trial and error, and ranges from 0 to 90 degrees, where 0 degrees is shooting directly upwards and 90 degrees is completely horizontal.
 
 </details>
 
@@ -64,29 +81,31 @@ These are the functions to be called in order for the simulation to function pro
 #### Robot.java
 <details>
 <summary> Called upon initialization </summary>
-
-* `start()`
-> resets the logging timer for the FUEL and allows the simulation to be updated.
-* `setSubticks(number)`
-> required for collisions between the FUEL and the field components such as the Bump and Trench. The default is 10.
-* `enableAirResistance()`
->This is optional, but there is not much of a reason not to use it in most cases, as it makes the simulation more realistic.
-* `registerRobot()`
-> This includes the length, width, and height of the robot, alongside its current `Pose3d` value and speed. This is critical to picking and shooting, as these functions do not work without it.
-* `registerIntake()`
-> This includes the minimum and maximum X and Y values of the picker, as previously discussed in the Intaking FUEL Section, and of course is critical to being able to simulate picking FUEL.
+<ul>
+<li> start()</li>
+    resets the logging timer for the FUEL and allows the simulation to be updated.
+<li> setSubticks(number) </li>
+    required for collisions between the FUEL and the field components such as the Bump and Trench. The default is 10.
+<li>enableAirResistance()</li>
+    This is optional, but there is not much of a reason not to use it in most cases, as it makes the simulation more realistic.
+<li>registerRobot()</li>
+    This includes the length, width, and height of the robot, alongside its current Pose3d value and speed. This is critical to picking and shooting, as these functions do not work without it.
+<li>registerIntake()</li>
+    This includes the minimum and maximum X and Y values of the picker, as previously discussed in the Intaking FUEL Section, and of course is critical to being able to simulate picking FUEL.
+</ul>
 
 </details>
 
 <details>
 <summary> Called periodically </summary>
-
-* `updateSim()`
-> This is what is used to apply air resistance and collision with objects such as the Hub or the robot, and then logs the new FUEL position.
-* `intakeFuel()`
-> Is constantly checking if the picker is deployed, and, if so, intakes the FUEL within the limits of how far the picker extends.
-* `getFuelStoredCount()`
-> Logs the amount of FUEL within the hopper, which is a value needed for things like checking if you can shoot or not.
+<ul>
+<li>updateSim()</li>
+    This is what is used to apply air resistance and collision with objects such as the Hub or the robot, and then logs the new FUEL position.
+<li>intakeFuel()</li>
+    Is constantly checking if the picker is deployed, and, if so, intakes the FUEL within the limits of how far the picker extends.
+<li>getFuelStoredCount()</li>
+    Logs the amount of FUEL within the hopper, which is a value needed for things like checking if you can shoot or not.
+</ul>
 </details>
 
 #### Subsystems
