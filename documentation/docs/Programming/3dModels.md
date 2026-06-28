@@ -27,7 +27,8 @@ The models for our robot and its components are found in our shared Onshape libr
 **NOTE**: In order to access this library, your account needs to be invited. In order to get invited, talk to the mentor who teaches the CAD class in the fall, who sends the invites via email.
 
 When you sign into Onshape, you should see this library if you were correctly invited and also accepted the invite:
-![Sign in page with our frc library](../../docs\images\OnshapeLibrary.png)
+
+<image src="../../imagesOnshapeLibrary.png" title="Sign in page with our FRC library">
 
 ## Exporting Models from Onshape
 
@@ -39,7 +40,7 @@ Go to the main assembly for the part you are trying to import, specifically one 
 
 **right click the file in the tab at the bottom of your screen**, and then press Export.
 
-![ExportLocation](../../docs\images\OnshapeExport.png)
+<image src="../../imagesOnshapeExport.png" title="Export Button Location">
 
 Export the file as a **STEP** file. You will need to make this .glb file in a second, but Onshape does not offer .glb exporting.
 
@@ -54,10 +55,11 @@ Once you have your file exported from Onshape, you can't quite put it into your 
 This program is also what we use for extra configuration of the models. (ie. Adding a non-moving component onto the [base model](#naming-conventions-and-models)). However, CAD Assistant is very limited in this aspect, making it hard to work with at times.
 
 In most cases, you can simply open up your .STEP file, press the Save icon (floppy disk on left hand side), and press export as  a .glb file. At times (such as the example previously mentioned) though, you might need to move components around. 
-![WhereSave](../../docs\images\WhereSaveButton.png)
+
+<image src="../../imagesWhereSaveButton.png" src="Location of the Save button">
 > Location of the Save button
 
-![WhereExport](../../docs\images\WhereExport.png)
+<image src="../../imagesWhereExport.png" title="Location of the Export button">
 > What to export as
 
 **NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. **Don't export to your AdvantageScope Assets folder in this format.** AdvantageScope reads files in binary form, and glb is the binary form of glTF. Importing as a glTF file will make it unreadable by AdvantageScope, so don't do it!
@@ -71,8 +73,10 @@ The base model for our robot should contain all parts that don't need to move se
 This often means that you need to combine other files into one another to put them on one model. To do this. Open up your current [model.glb](#naming-conventions-and-models).
 
 Then, select the folder icon on the left side and click the button labelled "Add to Current Document" on the bottom tab of the page. **You must do this BEFORE opening up the file you are trying to combine your base model with.**
-![FolderIcon](../../docs\images\FolderIcon.png)
-![AddToCurrent](../../docs\images\AddToCurrent.png)
+
+<image src="../../imagesFolderIcon.png" title="Folder icon location">
+
+<image src="../../imagesAddToCurrent.png" title="Add to Current Document button location">
 
 Click on the file you are trying to combine, and it should appear on your base model. If it isn't where it should be, see the tutorial below.
 
@@ -86,14 +90,14 @@ First, click any piece of the component you are trying to move. Press the button
 
 You should now have the entire component you are trying to move selected (Typically, this is from another file that you merged in). The selected sections will become more gray when selected. 
 
-![SelectParent](../../docs\images\SelectComponent.png)
+<image src="../../imagesSelectComponent.png" title="Select Parent location">
 In the photo above, the side walls are selected.
 
 If selecting the parent does not work (for example, it selects every piece of your model rather than one component), **press shift while clicking each individual part** you want moved.
 
 After all parts of the component you want to be moved are selected, click the icon **directly above the select parent icon**. Expand **location**, and then press **identity**.
 
-![MoveComponent](../../docs\images\CADmove.png)
+<image src="../../imagesCADmove.png" title="Moving a Component">
 
 Arrows for the X, Y, and Z axis should appear in red, green and blue. If these appear on the main model and not the part(s) you are trying to move, press **Identity again.** You can use these arrows to position the part to where it needs to go.
 
@@ -121,7 +125,7 @@ Next, **create a new folder** in VS Code. In the 2026 code for example, this fol
 
 To keep track of your different models, create variables in the `config.json` that signify the model number and name, such as seen in the components example below.
 
-![Components Example](../../docs\images\ComponentsExample.png)
+<image src="../../imagesComponentsExample.png" title="config.json example">
 
 ## Configuring Articulated Components
 
@@ -145,7 +149,9 @@ What this does:
 Click the + at the top right, and then 3d field. In the bottom right corner, set the field to Axes and zoom in on the robot model. (Right now, it is likely a KitBot. We will change this in just a second)
 
 Drag in the Drive/Pose key. Once it is in the Poses box, click the arrow icon next to its name and select the model name of your robot that you put in the `config.json` previously. Below the Drive/Pose key, drag your Zeroed Component Poses in.
-![Drag in Right](../../docs\images\ProperNesting.png)
+
+<image src="../../imagesProperNesting.png" title="Dragging Zeroed Component Poses into AdvantageScope">
+
 > Made sure that when you are dragging it in, only the Drive/Pose is highlighted, not the entire Poses box.
 
 Once dragged in, if the icon is green and says "Vision Target", click on it and change to a component. 
@@ -178,7 +184,8 @@ Then, depending on if your component rotates about a point or moves up/down or l
 <details>
 <summary> Configuring Rotation </summary>
 
-#### Rotation - Finding the point of Rotation
+<b>Rotation - Finding the point of Rotation</b>
+<hr>
 
 * Create a double called timer and set it to timer.getTimeStamp()
     * This creates a constantly increasing double
@@ -211,12 +218,14 @@ public static final Translation3d PICKER_ROTATION_POINT = new Translation3d(-0.3
 ```
 This is an example of a rotation point on a rotating picker. Notice both positive and negative values, as well as the fact that these numbers are pretty small. This is because the measurements are in meters, relative to the bottom center of the robot.
 
-#### Rotation - Making it move as it does in real life
+<br>
+<b> Rotation - Making it move as it does in real life </b>
+<hr>
 
 * Now, set the value of the Rotation3d to the angle of your subsystem, and ensure the angle is in units of radians
     * In the example below,rotations are converted to radians by multiplying by 2pi.
 
-![Rotation Example](../../docs\images\RotationEx.png)
+<image src="../../imagesRotationEx.png" title="Example of rotation code">
 
 </details>
 
@@ -224,18 +233,23 @@ This is an example of a rotation point on a rotating picker. Notice both positiv
 
 <summary> Configuring Translation </summary>
 
-#### Translation - Finding the starting point
+<b>Translation - Finding the starting point</b>
+<hr>
 
 * Create a Translation 3d, setting the X, Y, and Z values to your startingPoint.getX(), startingPoint.getY(), and startingPoint.getZ() respectively. 
 
 * Use trial and error to find the starting point, beginning with large adjustments in the values and slowly refining your `SUBSYSTEM_STARTING_POINT`
     * values for the X, Y, and Z coordinates are in meters relative to the robot, so a "big" adjustment would be considered to be 0.1 or 0.2 in either a negative or positive direction.
 
-#### Translation - Making it move as it does in real life
+<br>
+
+<b>Translation - Making it move as it does in real life<b>
+<hr>
+
 * Simply add inputs.currentPosition to whichever one of the startingPoint.get X(), Y(), or Z() values
     * if the component is moving far too much and the subsystem doesn't use canonical units, use trial and error to find a coefficent that moves it the correct amount.
 
-    ![Translation Example](../../docs\images\TranslationEx.png)
+    <image src="../../imagesTranslationEx.png" title="Example of translation code">
 </details>
 
 #### Testing
@@ -248,4 +262,4 @@ This is an example of a rotation point on a rotating picker. Notice both positiv
 Hopefully, you should have a 3d Simulation of the robot!
 Here is an example of what it should look like, with parts able to move up and down when you make the desired position of their subsystems change.
 
- ![Final Bot](../../docs\images\EpicRobot.gif)
+ <image src="../../imagesEpicRobot.gif" title="Putting it all together!">
