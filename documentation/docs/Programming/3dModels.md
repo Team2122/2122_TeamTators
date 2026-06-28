@@ -28,7 +28,7 @@ The models for our robot and its components are found in our shared Onshape libr
 
 When you sign into Onshape, you should see this library if you were correctly invited and also accepted the invite:
 
-<image src="../imagesOnshapeLibrary.png" title="Sign in page with our FRC library">
+<img src="../imagesOnshapeLibrary.png" alt="Sign in page with our FRC library">
 
 ## Exporting Models from Onshape
 
@@ -40,7 +40,7 @@ Go to the main assembly for the part you are trying to import, specifically one 
 
 **right click the file in the tab at the bottom of your screen**, and then press Export.
 
-<image src="../imagesOnshapeExport.png" title="Export Button Location">
+<img src="../imagesOnshapeExport.png" alt="Export Button Location">
 
 Export the file as a **STEP** file. You will need to make this .glb file in a second, but Onshape does not offer .glb exporting.
 
@@ -56,10 +56,10 @@ This program is also what we use for extra configuration of the models. (ie. Add
 
 In most cases, you can simply open up your .STEP file, press the Save icon (floppy disk on left hand side), and press export as  a .glb file. At times (such as the example previously mentioned) though, you might need to move components around. 
 
-<image src="../imagesWhereSaveButton.png" src="Location of the Save button">
+<img src="../imagesWhereSaveButton.png" src="Location of the Save button">
 > Location of the Save button
 
-<image src="../imagesWhereExport.png" title="Location of the Export button">
+<img src="../imagesWhereExport.png" alt="Location of the Export button">
 > What to export as
 
 **NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. **Don't export to your AdvantageScope Assets folder in this format.** AdvantageScope reads files in binary form, and glb is the binary form of glTF. Importing as a glTF file will make it unreadable by AdvantageScope, so don't do it!
@@ -74,9 +74,9 @@ This often means that you need to combine other files into one another to put th
 
 Then, select the folder icon on the left side and click the button labelled "Add to Current Document" on the bottom tab of the page. **You must do this BEFORE opening up the file you are trying to combine your base model with.**
 
-<image src="../imagesFolderIcon.png" title="Folder icon location">
+<img src="../imagesFolderIcon.png" alt="Folder icon location">
 
-<image src="../imagesAddToCurrent.png" title="Add to Current Document button location">
+<img src="../imagesAddToCurrent.png" alt="Add to Current Document button location">
 
 Click on the file you are trying to combine, and it should appear on your base model. If it isn't where it should be, see the tutorial below.
 
@@ -90,14 +90,14 @@ First, click any piece of the component you are trying to move. Press the button
 
 You should now have the entire component you are trying to move selected (Typically, this is from another file that you merged in). The selected sections will become more gray when selected. 
 
-<image src="../imagesSelectComponent.png" title="Select Parent location">
+<img src="../imagesSelectComponent.png" alt="Select Parent location">
 In the photo above, the side walls are selected.
 
 If selecting the parent does not work (for example, it selects every piece of your model rather than one component), **press shift while clicking each individual part** you want moved.
 
 After all parts of the component you want to be moved are selected, click the icon **directly above the select parent icon**. Expand **location**, and then press **identity**.
 
-<image src="../imagesCADmove.png" title="Moving a Component">
+<img src="../imagesCADmove.png" alt="Moving a Component">
 
 Arrows for the X, Y, and Z axis should appear in red, green and blue. If these appear on the main model and not the part(s) you are trying to move, press **Identity again.** You can use these arrows to position the part to where it needs to go.
 
@@ -125,7 +125,7 @@ Next, **create a new folder** in VS Code. In the 2026 code for example, this fol
 
 To keep track of your different models, create variables in the `config.json` that signify the model number and name, such as seen in the components example below.
 
-<image src="../imagesComponentsExample.png" title="config.json example">
+<img src="../imagesComponentsExample.png" alt="config.json example">
 
 ## Configuring Articulated Components
 
@@ -150,7 +150,7 @@ Click the + at the top right, and then 3d field. In the bottom right corner, set
 
 Drag in the Drive/Pose key. Once it is in the Poses box, click the arrow icon next to its name and select the model name of your robot that you put in the `config.json` previously. Below the Drive/Pose key, drag your Zeroed Component Poses in.
 
-<image src="../imagesProperNesting.png" title="Dragging Zeroed Component Poses into AdvantageScope">
+<img src="../imagesProperNesting.png" alt="Dragging Zeroed Component Poses into AdvantageScope">
 
 > Made sure that when you are dragging it in, only the Drive/Pose is highlighted, not the entire Poses box.
 
@@ -226,7 +226,7 @@ This is an example of a rotation point on a rotating picker. Notice both positiv
 <li> Now, set the value of the Rotation3d to the angle of your subsystem, and ensure the angle is in units of radians </li>
     <li> In the example below,rotations are converted to radians by multiplying by 2pi.</li>
 
-<image src="../imagesRotationEx.png" title="Example of rotation code">
+<img src="../imagesRotationEx.png" alt="Example of rotation code">
 </ul>
 </details>
 
@@ -248,7 +248,7 @@ This is an example of a rotation point on a rotating picker. Notice both positiv
 <li>Simply add inputs.currentPosition to whichever one of the startingPoint.get X(), Y(), or Z() values </li>
     <li> if the component is moving far too much and the subsystem doesn't use canonical units, use trial and error to find a coefficent that moves it the correct amount. </li>
 
-    <image src="../imagesTranslationEx.png" title="Example of translation code">
+    <img src="../imagesTranslationEx.png" alt="Example of translation code">
 </details>
 
 #### Testing
@@ -261,4 +261,4 @@ This is an example of a rotation point on a rotating picker. Notice both positiv
 Hopefully, you should have a 3d Simulation of the robot!
 Here is an example of what it should look like, with parts able to move up and down when you make the desired position of their subsystems change.
 
- <image src="../imagesEpicRobot.gif" title="Putting it all together!">
+ <img src="../imagesEpicRobot.gif" alt="Putting it all together!">
