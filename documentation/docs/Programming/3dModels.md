@@ -175,9 +175,9 @@ In the `log()` of the subsystem of the component you want to move, you need to d
         //...
     }
     ```
-* In the constants file of your subsystem, create a Translation 3D named something along the lines of SUBSYSTEM_STARTING_POINT and set it to 0,0,0. You will adjust this in a minute.
+* In the constants file of your subsystem, create a Translation 3D named something along the lines of `SUBSYSTEM_STARTING_POINT` and set it to 0,0,0. You will adjust this in a minute.
 
-    * Below is an example of what your SUBSYSTEM_STARTING_POINT could look like, in this case with a rotating picker:
+    * Below is an example of what your `SUBSYSTEM_STARTING_POINT` could look like, in this case with a rotating picker:
     ```
     public static final Translation3d PICKER_ROTATION_POINT = new Translation3d(0.0, 0.0, 0.0);
     ```
@@ -246,7 +246,7 @@ This is an example of a rotation point on a rotating picker. Notice both positiv
 
 <br>
 
-<h4>Translation - Making it move as it does in real life<h4>
+<h4>Translation - Making it move as it does in real life</h4>
 
 <li>Simply add inputs.currentPosition to whichever one of the startingPoint.get X(), Y(), or Z() values </li>
     <li> if the component is moving far too much and the subsystem doesn't use canonical units, use trial and error to find a coefficient that moves it the correct amount. </li>
