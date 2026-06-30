@@ -44,7 +44,7 @@ Go to the main assembly for the part you are trying to import, specifically one 
 
 Export the file as a **STEP** file. You will need to make this glb file in a second, but Onshape does not offer glb exporting.
 
-You do not really need to do anything else in the export menu apart from exporting to a .STEP file.
+You do not really need to do anything else in the export menu apart from exporting to a STEP file.
 
 ## Configuring and exporting in CAD Assistant
 
@@ -54,7 +54,7 @@ Once you have your file exported from Onshape, you can't quite put it into your 
 
 This program is also what we use for extra configuration of the models. (ie. Adding a non-moving component onto the [base model](#naming-conventions-and-models)). However, CAD Assistant is very limited in this aspect, making it hard to work with at times.
 
-In most cases, you can simply open up your .STEP file, press the Save icon (floppy disk on left hand side), and press export as  a glb file. At times (such as the example previously mentioned) though, you might need to move components around. 
+In most cases, you can simply open up your STEP file, press the Save icon (floppy disk on left hand side), and press export as  a glb file. At times (such as the example previously mentioned) though, you might need to move components around. 
 
 ![SaveLocation](../images/WhereSaveButton.png)
 > Location of the Save button
@@ -64,7 +64,7 @@ In most cases, you can simply open up your .STEP file, press the Save icon (flop
 
 **NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. **Don't export to your AdvantageScope Assets folder in this format.** AdvantageScope reads files in binary form, and glb is the binary form of glTF. Importing as a glTF file will make it unreadable by AdvantageScope, so don't do it!
 
-Once exported, **the file will not be able to be viewed when clicked in the VS code editor!** Do not panic. This does not mean its broken, nor does it mean you should be using a glTF file instead. The VS code editor just cant process .glb files, since they are in binary.
+Once exported, **the file will not be able to be viewed when clicked in the VS code editor!** Do not panic. This does not mean its broken, nor does it mean you should be using a glTF file instead. The VS code editor just cant process glb files, since they are in binary.
 
 ### Combining files in CAD Assistant
 
@@ -82,7 +82,7 @@ Click on the file you are trying to combine, and it should appear on your base m
 
 ### Moving things around in CAD Assistant
 
-This can be done with a .STEP file just exported or, a .glb file currently in the code. 
+This can be done with a STEP file just exported or, a glb file currently in the code. 
 
 As CAD Assistant is a relatively simple software designed for exporting, it doesn't have the best tools for moving around the models, so it can be irritating to do so. It's recommended to avoid moving the components around when you can, for example by exporting the RobotMaster, then individually deleting the parts that need to move separately from the drivebase when creating your model.glb.
 
@@ -108,7 +108,7 @@ On occasion, it will not follow the point that you clicked, and instead move to 
 
 **DO NOT FORGET TO SAVE YOUR CAD MODELS WHEN DONE!**
 
-Saving your model is the same proccess as [Exporting](#configuring-and-exporting-in-cad-assistant) your file as a .glb for the first time. Of course, make sure it is still a .glb file when you save! 
+Saving your model is the same process as [Exporting](#configuring-and-exporting-in-cad-assistant) your file as a glb for the first time. Of course, make sure it is still a glb file when you save! 
 
 ## Folder and Files
 
@@ -122,7 +122,7 @@ Next, **create a new folder** in VS Code. In the 2026 code for example, this fol
 
 * **model0.glb** - This is your first separately moving component. From 0, the number increases (ie: model1.glb, model2.glb...)
 
-**NOTE**:  In your `config.json`, the componenets must be in the same order as your models. If a component's file is named `model1.glb`, it cannot be first in the array.
+**NOTE**:  In your `config.json`, the components must be in the same order as your models. If a component's file is named `model1.glb`, it cannot be first in the array.
 
 To keep track of your different models, create variables in the `config.json` that signify the model number and name, such as seen in the components example below.
 
@@ -161,7 +161,7 @@ Once dragged in, if the icon is green and says "Vision Target", click on it and 
 
 
 ### Movement
-This portion requires a lot of information from the java docs methods section for pose3d, linked [here](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Pose3d.html)
+This portion requires a lot of information from the java docs methods section for Pose3d, linked [here](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Pose3d.html)
 
 Once your models have been configured using Zeroed Component Poses, the next step is to make them move.
 
@@ -249,7 +249,7 @@ This is an example of a rotation point on a rotating picker. Notice both positiv
 <h4>Translation - Making it move as it does in real life<h4>
 
 <li>Simply add inputs.currentPosition to whichever one of the startingPoint.get X(), Y(), or Z() values </li>
-    <li> if the component is moving far too much and the subsystem doesn't use canonical units, use trial and error to find a coefficent that moves it the correct amount. </li>
+    <li> if the component is moving far too much and the subsystem doesn't use canonical units, use trial and error to find a coefficient that moves it the correct amount. </li>
 
 ![TranslationCode](../images/TranslationEx.png)
 </details>
