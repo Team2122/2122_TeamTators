@@ -28,7 +28,7 @@ The models for our robot and its components are found in our shared Onshape libr
 
 When you sign into Onshape, you should see this library if you were correctly invited and also accepted the invite:
 
-<image src="../../imagesOnshapeLibrary.png" title="Sign in page with our FRC library">
+![OnshapeSignIn](../images/OnshapeLibrary.png)
 
 ## Exporting Models from Onshape
 
@@ -40,31 +40,31 @@ Go to the main assembly for the part you are trying to import, specifically one 
 
 **right click the file in the tab at the bottom of your screen**, and then press Export.
 
-<image src="../../imagesOnshapeExport.png" title="Export Button Location">
+![ExportButtonLocation](../images/OnshapeExport.png)
 
-Export the file as a **STEP** file. You will need to make this .glb file in a second, but Onshape does not offer .glb exporting.
+Export the file as a **STEP** file. You will need to make this glb file in a second, but Onshape does not offer glb exporting.
 
-You do not really need to do anything else in the export menu apart from exporting to a .STEP file.
+You do not really need to do anything else in the export menu apart from exporting to a STEP file.
 
 ## Configuring and exporting in CAD Assistant
 
 <!-- Note: This will need to be updated if we get a better CAD configuring and exporting software, as CAD assistant is...bad. Blender seems a bit complex for this task, but it could be an option. Preferably, a tool available across all OS would be best. -->
 
-Once you have your file exported from Onshape, you can't quite put it into your AdvantageScope assets folder yet. Instead, you must [download CAD Assistant]((https://dev.opencascade.org/project/cad-assistant)), a program that lets you export to .glb files.
+Once you have your file exported from Onshape, you can't quite put it into your AdvantageScope assets folder yet. Instead, you must [download CAD Assistant]((https://dev.opencascade.org/project/cad-assistant)), a program that lets you export to glb files.
 
 This program is also what we use for extra configuration of the models. (ie. Adding a non-moving component onto the [base model](#naming-conventions-and-models)). However, CAD Assistant is very limited in this aspect, making it hard to work with at times.
 
-In most cases, you can simply open up your .STEP file, press the Save icon (floppy disk on left hand side), and press export as  a .glb file. At times (such as the example previously mentioned) though, you might need to move components around. 
+In most cases, you can simply open up your STEP file, press the Save icon (floppy disk on left hand side), and press export as  a glb file. At times (such as the example previously mentioned) though, you might need to move components around. 
 
-<image src="../../imagesWhereSaveButton.png" src="Location of the Save button">
+![SaveLocation](../images/WhereSaveButton.png)
 > Location of the Save button
 
-<image src="../../imagesWhereExport.png" title="Location of the Export button">
+![CADAssistantExport](../images/WhereExport.png)
 > What to export as
 
 **NOTE**: if you did indeed read the AdvantageScope documentation closely, you might have seen a mention of glTF files. **Don't export to your AdvantageScope Assets folder in this format.** AdvantageScope reads files in binary form, and glb is the binary form of glTF. Importing as a glTF file will make it unreadable by AdvantageScope, so don't do it!
 
-Once exported, **the file will not be able to be viewed when clicked in the VS code editor!** Do not panic. This does not mean its broken, nor does it mean you should be using a glTF file instead. The VS code editor just cant process .glb files, since they are in binary.
+Once exported, **the file will not be able to be viewed when clicked in the VS code editor!** Do not panic. This does not mean its broken, nor does it mean you should be using a glTF file instead. The VS code editor just cant process glb files, since they are in binary.
 
 ### Combining files in CAD Assistant
 
@@ -74,15 +74,15 @@ This often means that you need to combine other files into one another to put th
 
 Then, select the folder icon on the left side and click the button labelled "Add to Current Document" on the bottom tab of the page. **You must do this BEFORE opening up the file you are trying to combine your base model with.**
 
-<image src="../../imagesFolderIcon.png" title="Folder icon location">
+![FolderIcon](../images/FolderIcon.png)
 
-<image src="../../imagesAddToCurrent.png" title="Add to Current Document button location">
+![AddToDocument](../images/AddToCurrent.png")
 
 Click on the file you are trying to combine, and it should appear on your base model. If it isn't where it should be, see the tutorial below.
 
 ### Moving things around in CAD Assistant
 
-This can be done with a .STEP file just exported or, a .glb file currently in the code. 
+This can be done with a STEP file just exported or, a glb file currently in the code. 
 
 As CAD Assistant is a relatively simple software designed for exporting, it doesn't have the best tools for moving around the models, so it can be irritating to do so. It's recommended to avoid moving the components around when you can, for example by exporting the RobotMaster, then individually deleting the parts that need to move separately from the drivebase when creating your model.glb.
 
@@ -90,14 +90,15 @@ First, click any piece of the component you are trying to move. Press the button
 
 You should now have the entire component you are trying to move selected (Typically, this is from another file that you merged in). The selected sections will become more gray when selected. 
 
-<image src="../../imagesSelectComponent.png" title="Select Parent location">
+![SelectParent](../images/SelectComponent.png)
+
 In the photo above, the side walls are selected.
 
 If selecting the parent does not work (for example, it selects every piece of your model rather than one component), **press shift while clicking each individual part** you want moved.
 
 After all parts of the component you want to be moved are selected, click the icon **directly above the select parent icon**. Expand **location**, and then press **identity**.
 
-<image src="../../imagesCADmove.png" title="Moving a Component">
+![MoveComponentCADAssistant](../images/CADmove.png)
 
 Arrows for the X, Y, and Z axis should appear in red, green and blue. If these appear on the main model and not the part(s) you are trying to move, press **Identity again.** You can use these arrows to position the part to where it needs to go.
 
@@ -107,7 +108,7 @@ On occasion, it will not follow the point that you clicked, and instead move to 
 
 **DO NOT FORGET TO SAVE YOUR CAD MODELS WHEN DONE!**
 
-Saving your model is the same proccess as [Exporting](#configuring-and-exporting-in-cad-assistant) your file as a .glb for the first time. Of course, make sure it is still a .glb file when you save! 
+Saving your model is the same process as [Exporting](#configuring-and-exporting-in-cad-assistant) your file as a glb for the first time. Of course, make sure it is still a glb file when you save! 
 
 ## Folder and Files
 
@@ -121,11 +122,11 @@ Next, **create a new folder** in VS Code. In the 2026 code for example, this fol
 
 * **model0.glb** - This is your first separately moving component. From 0, the number increases (ie: model1.glb, model2.glb...)
 
-**NOTE**:  In your `config.json`, the componenets must be in the same order as your models. If a component's file is named `model1.glb`, it cannot be first in the array.
+**NOTE**:  In your `config.json`, the components must be in the same order as your models. If a component's file is named `model1.glb`, it cannot be first in the array.
 
 To keep track of your different models, create variables in the `config.json` that signify the model number and name, such as seen in the components example below.
 
-<image src="../../imagesComponentsExample.png" title="config.json example">
+![config.jsonEx](../images/ComponentsExample.png)
 
 ## Configuring Articulated Components
 
@@ -139,7 +140,7 @@ Copy the path of the folder that holds your [Robot_](#folder-and-files) folder, 
 Now, we get to the most important part of the process: putting your models into action. For now, put the following log into your RobotPeriodic() in Robot.java:
 
 ```
-Logger.recordOutput("Zeroed Component Poses", new Pose 3d[] {new Pose 3d()});
+Logger.recordOutput("Zeroed Component Poses", new Pose3d[] {new Pose 3d()});
 ```
 
 What this does:
@@ -150,7 +151,7 @@ Click the + at the top right, and then 3d field. In the bottom right corner, set
 
 Drag in the Drive/Pose key. Once it is in the Poses box, click the arrow icon next to its name and select the model name of your robot that you put in the `config.json` previously. Below the Drive/Pose key, drag your Zeroed Component Poses in.
 
-<image src="../../imagesProperNesting.png" title="Dragging Zeroed Component Poses into AdvantageScope">
+![Drag0PoseAScope](../images/ProperNesting.png)
 
 > Made sure that when you are dragging it in, only the Drive/Pose is highlighted, not the entire Poses box.
 
@@ -160,7 +161,7 @@ Once dragged in, if the icon is green and says "Vision Target", click on it and 
 
 
 ### Movement
-This portion requires a lot of information from the java docs methods section for pose3d, linked [here](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Pose3d.html)
+This portion requires a lot of information from the java docs methods section for Pose3d, linked [here](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Pose3d.html)
 
 Once your models have been configured using Zeroed Component Poses, the next step is to make them move.
 
@@ -168,15 +169,15 @@ In the `log()` of the subsystem of the component you want to move, you need to d
 
 * Make sure that the Robot is being simulated, so the code doesn't create a bunch of things it doesn't need while the robot is actually running
 
-    * Below is how to check that your roobot is not currently running in real life. This can also be used for replay:
+    * Below is how to check that your robot is not currently running in real life. This can also be used for replay:
     ```
     if(Constants.ROBOT_MEDIUM != RobotMedium.REAL){
         //...
     }
     ```
-* In the constants file of your subsystem, create a Translation 3D named something along the lines of SUBSYSTEM_STARTING_POINT and set it to 0,0,0. You will adjust this in a minute.
+* In the constants file of your subsystem, create a Translation 3D named something along the lines of `SUBSYSTEM_STARTING_POINT` and set it to 0,0,0. You will adjust this in a minute.
 
-    * Below is an example of what your SUBSYSTEM_STARTING_POINT could look like, in this case with a rotating picker:
+    * Below is an example of what your `SUBSYSTEM_STARTING_POINT` could look like, in this case with a rotating picker:
     ```
     public static final Translation3d PICKER_ROTATION_POINT = new Translation3d(0.0, 0.0, 0.0);
     ```
@@ -184,17 +185,19 @@ Then, depending on if your component rotates about a point or moves up/down or l
 <details>
 <summary> Configuring Rotation </summary>
 
-<b>Rotation - Finding the point of Rotation</b>
-<hr>
+<h4>Rotation - Finding the point of Rotation</h4>
 
-* Create a double called timer and set it to timer.getTimeStamp()
-    * This creates a constantly increasing double
-* Create a `Rotation3d` and set it to time
-    * this will make the component rotate in a full circle, which helps to pinpoint the point of rotation
-* Create a `Pose3d` and set it to `k.Zero`, then make it rotate around (your subsystem's point of rotation, which is the value   `Rotation3d` you just made) (for more context about .rotateAround(), see the [Pose 3d documentation](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Pose3d.html))
-    * Log said `Pose3d`
+<ul>
 
-* Example:
+<li> Create a double called timer and set it to timer.getTimeStamp() </li>
+    <li>This creates a constantly increasing double</li>
+<li> Create a `Rotation3d` and set it to time</li>
+    <li> this will make the component rotate in a full circle, which helps to pinpoint the point of rotation</li>
+<li> Create a `Pose3d` and set it to `k.Zero`, then make it rotate around (your subsystem's point of rotation, which is the value   `Rotation3d` you just made) (for more context about .rotateAround(), see the [Pose 3d documentation](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Pose3d.html)) </li>
+    <li>Log said `Pose3d`</li>
+
+<li> Example: </li>
+
 ```
 double timer = new timer.getTimeStamp();
 
@@ -211,45 +214,44 @@ log(){
 
 As you continue to find your point of rotation, make sure that your component is orbiting about the part of the component you want it to. If it looks like it is rotating about a different part of the component, set your rotation 3d to 0 and configure.
 
-* Once your component is rotating in a circular motion, use trial and error to move your component to the point on the robot you want it to rotate about. Start by making big changes to your starting point (such as changing a coordinate value by 0.1), and as you get closer to the point, make smaller and smaller adjustments.
+<li> Once your component is rotating in a circular motion, use trial and error to move your component to the point on the robot you want it to rotate about. Start by making big changes to your starting point (such as changing a coordinate value by 0.1), and as you get closer to the point, make smaller and smaller adjustments. </li>
 
 ```
 public static final Translation3d PICKER_ROTATION_POINT = new Translation3d(-0.32, 0.0,0.18);
 ```
+
 This is an example of a rotation point on a rotating picker. Notice both positive and negative values, as well as the fact that these numbers are pretty small. This is because the measurements are in meters, relative to the bottom center of the robot.
 
 <br>
-<b> Rotation - Making it move as it does in real life </b>
-<hr>
+<h4> Rotation - Making it move as it does in real life </h4>
 
-* Now, set the value of the Rotation3d to the angle of your subsystem, and ensure the angle is in units of radians
-    * In the example below,rotations are converted to radians by multiplying by 2pi.
+<li> Now, set the value of the Rotation3d to the angle of your subsystem, and ensure the angle is in units of radians </li>
+    <li> In the example below,rotations are converted to radians by multiplying by 2pi.</li>
 
-<image src="../../imagesRotationEx.png" title="Example of rotation code">
+![RotationCode](../images/RotationEx.png)
 
+</ul>
 </details>
 
 <details>
 
 <summary> Configuring Translation </summary>
 
-<b>Translation - Finding the starting point</b>
-<hr>
+<h4>Translation - Finding the starting point</h4>
 
-* Create a Translation 3d, setting the X, Y, and Z values to your startingPoint.getX(), startingPoint.getY(), and startingPoint.getZ() respectively. 
+ Create a Translation 3d, setting the X, Y, and Z values to your startingPoint.getX(), startingPoint.getY(), and startingPoint.getZ() respectively. </li>
 
-* Use trial and error to find the starting point, beginning with large adjustments in the values and slowly refining your `SUBSYSTEM_STARTING_POINT`
-    * values for the X, Y, and Z coordinates are in meters relative to the robot, so a "big" adjustment would be considered to be 0.1 or 0.2 in either a negative or positive direction.
+<li> Use trial and error to find the starting point, beginning with large adjustments in the values and slowly refining your `SUBSYSTEM_STARTING_POINT` </li>
+    <li> values for the X, Y, and Z coordinates are in meters relative to the robot, so a "big" adjustment would be considered to be 0.1 or 0.2 in either a negative or positive direction. </li>
 
 <br>
 
-<b>Translation - Making it move as it does in real life<b>
-<hr>
+<h4>Translation - Making it move as it does in real life</h4>
 
-* Simply add inputs.currentPosition to whichever one of the startingPoint.get X(), Y(), or Z() values
-    * if the component is moving far too much and the subsystem doesn't use canonical units, use trial and error to find a coefficent that moves it the correct amount.
+<li>Simply add inputs.currentPosition to whichever one of the startingPoint.get X(), Y(), or Z() values </li>
+    <li> if the component is moving far too much and the subsystem doesn't use canonical units, use trial and error to find a coefficient that moves it the correct amount. </li>
 
-    <image src="../../imagesTranslationEx.png" title="Example of translation code">
+![TranslationCode](../images/TranslationEx.png)
 </details>
 
 #### Testing
@@ -262,4 +264,4 @@ This is an example of a rotation point on a rotating picker. Notice both positiv
 Hopefully, you should have a 3d Simulation of the robot!
 Here is an example of what it should look like, with parts able to move up and down when you make the desired position of their subsystems change.
 
- <image src="../../imagesEpicRobot.gif" title="Putting it all together!">
+![EpicBot](../images/EpicRobot.gif)
