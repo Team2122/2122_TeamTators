@@ -76,7 +76,7 @@ Then, select the folder icon on the left side and click the button labelled "Add
 
 ![FolderIcon](../images/FolderIcon.png)
 
-![AddToDocument](../images/AddToCurrent.png")
+![AddToDocument](../images/AddToCurrent.png)
 
 Click on the file you are trying to combine, and it should appear on your base model. If it isn't where it should be, see the tutorial below.
 
@@ -222,36 +222,51 @@ public static final Translation3d PICKER_ROTATION_POINT = new Translation3d(-0.3
 
 This is an example of a rotation point on a rotating picker. Notice both positive and negative values, as well as the fact that these numbers are pretty small. This is because the measurements are in meters, relative to the bottom center of the robot.
 
+</ul>
 <br>
+
 <h4> Rotation - Making it move as it does in real life </h4>
+<ul>
+    <li> Now, set the value of the Rotation3d to the angle of your subsystem, and ensure the angle is in units of radians </li>
+        <li> In the example below, rotations are converted to radians by multiplying by 2pi.</li>
 
-<li> Now, set the value of the Rotation3d to the angle of your subsystem, and ensure the angle is in units of radians </li>
-    <li> In the example below,rotations are converted to radians by multiplying by 2pi.</li>
+```
+Rotation3d pickerRotation = new Rotation3d(0, inputs.currentPosition * 2 * Math.PI, 0);
 
-![RotationCode](../images/RotationEx.png)
+Pose3d pickerPose =
+    Pose3d.kZero.rotateAround(PickerConstants.PICKER_ROTATION_POINT, pickerRotation);
+
+Logger.recordOutput("SimMaxxing/PickerPose", new Pose3d[] {pickerPose});
+```
 
 </ul>
 </details>
 
 <details>
-
 <summary> Configuring Translation </summary>
 
 <h4>Translation - Finding the starting point</h4>
-
- Create a Translation 3d, setting the X, Y, and Z values to your startingPoint.getX(), startingPoint.getY(), and startingPoint.getZ() respectively. </li>
-
-<li> Use trial and error to find the starting point, beginning with large adjustments in the values and slowly refining your `SUBSYSTEM_STARTING_POINT` </li>
-    <li> values for the X, Y, and Z coordinates are in meters relative to the robot, so a "big" adjustment would be considered to be 0.1 or 0.2 in either a negative or positive direction. </li>
-
+<ul>
+    <li> Create a Translation 3d, setting the X, Y, and Z values to your startingPoint.getX(), startingPoint.getY(), and startingPoint.getZ() respectively. </li>
+    <li> Use trial and error to find the starting point, beginning with large adjustments in the values and slowly refining your `SUBSYSTEM_STARTING_POINT` </li>
+        <li> values for the X, Y, and Z coordinates are in meters relative to the robot, so a "big" adjustment would be considered to be 0.1 or 0.2 in either a negative or positive direction. </li>
+</ul>
 <br>
 
 <h4>Translation - Making it move as it does in real life</h4>
-
+<ul>
 <li>Simply add inputs.currentPosition to whichever one of the startingPoint.get X(), Y(), or Z() values </li>
     <li> if the component is moving far too much and the subsystem doesn't use canonical units, use trial and error to find a coefficient that moves it the correct amount. </li>
 
-![TranslationCode](../images/TranslationEx.png)
+```
+Translation3d position = 
+    new Translation3d(
+        VerticalExtensionConstants.EXTENSION_START_POINT.getX(),
+        VerticalExtensionConstants.EXTENSION_START_POINT.getY(),
+        VerticalExtensionConstants.EXTENSION_START_POINT.getZ()
+            + inputs.currentPosition * 0.08);
+```
+</ul>
 </details>
 
 #### Testing
