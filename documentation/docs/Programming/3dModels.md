@@ -248,7 +248,7 @@ Logger.recordOutput("SimMaxxing/PickerPose", new Pose3d[] {pickerPose});
 <h4>Translation - Finding the starting point</h4>
 <ul>
     <li> Create a Translation 3d, setting the X, Y, and Z values to your startingPoint.getX(), startingPoint.getY(), and startingPoint.getZ() respectively. </li>
-    <li> Use trial and error to find the starting point, beginning with large adjustments in the values and slowly refining your `SUBSYSTEM_STARTING_POINT` </li>
+    <li> Use trial and error to find the starting point, beginning with large adjustments in the values and slowly refining your SUBSYSTEM_STARTING_POINT </li>
         <li> values for the X, Y, and Z coordinates are in meters relative to the robot, so a "big" adjustment would be considered to be 0.1 or 0.2 in either a negative or positive direction. </li>
 </ul>
 <br>
@@ -272,7 +272,7 @@ Translation3d position =
 #### Testing
 * Bind the subsystem moving to a new desired position to a button on the driver controller and test it out in simulation!
     * use `driverController.button().onTrue(...);`
-    as opposed to whileTrue, and use different buttons to set it to different positions for best testing
+    as opposed to `whileTrue`, and use different buttons to set it to different positions for best testing
 
 ## The Final Product
 
