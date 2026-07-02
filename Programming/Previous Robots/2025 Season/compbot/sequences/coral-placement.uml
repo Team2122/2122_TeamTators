@@ -1,0 +1,35 @@
+@startuml
+participant "driver" as driver 
+participant "Robot.java" as robot
+participant "Vision.java" as vision 
+participant "Swerve.java" as swerve
+participant "Lift.java" as lift
+participant "Corralator.java" as corralator 
+activate vision
+driver -> robot: button is pressed (TBD)
+alt coral is present 
+activate robot
+robot -> swerve: drive towards reef edge
+activate swerve
+vision -> robot: align based on AprilTag
+robot -> swerve: move right/left
+vision -> robot: align based on purple reef
+robot -> swerve: stop
+deactivate swerve
+robot -> lift: go to position needed
+activate lift
+lift -> robot: position reached
+deactivate lift
+robot -> corralator: place coral
+activate corralator
+corralator -> robot: coral is released
+deactivate corralator
+robot -> lift: go back down
+activate lift
+lift -> robot: at home
+deactivate lift
+end
+robot -> robot: command end
+deactivate vision
+deactivate robot
+@enduml

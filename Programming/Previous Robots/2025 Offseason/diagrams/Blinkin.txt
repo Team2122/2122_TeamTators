@@ -1,0 +1,30 @@
+made in mermaidchart.com
+
+---
+config:
+  layout: elk
+---
+flowchart TB
+    B{"something wrong?"} -- yes --> C["robot unhealthy color"]
+    B -- no --> D{"deep climbing?"}
+    D -- yes --> E["robot deep climbing color"]
+    D -- no --> F{"coral picking?"}
+    F -- yes --> G["picking coral color"]
+    F -- no --> H{"picking algae?"}
+    H -- yes --> I["algae picking color"]
+    H -- no --> J{"barge placing?"}
+    J -- yes --> K{"distance"}
+    K -- too far --> L["barge place far color"]
+    K -- just right --> M["barge place perfect color"]
+    K -- too close --> N["barge place danger color"]
+    J -- none of the above --> O{"holding anything?"}
+    O --> P{"yes?"}
+    O -- no --> R["idle color"]
+    P --> Q{"aligned?"}
+    Q -- yes --> S["aligned color"]
+    Q -- no --> T[/"algae?"/]
+    T -- yes --> U["holding algae color"]
+    T -- no --> V[/"coral?"/]
+    V -- yes --> W["holding coral color"]
+    V -- no --> X[/"both?"/]
+    X -- yes --> Y["holding both color"]

@@ -1,0 +1,17 @@
+@startuml
+actor "driver" as driver
+participant "pivot.java" as pivot
+participant "lift.java" as lift
+driver -> pivot : go to some position
+activate pivot
+pivot o-> pivot : state changes to MOVING
+note over pivot: pivot moves into the unsafe zone
+pivot o-> pivot : state changes into UNSAFE
+lift o-> lift : state changes into UNSAFE
+note over lift : Moves up enough for pivot to not crash
+pivot o-> pivot : state changes into MOVING
+note over pivot: moves past unsafe zone
+lift o-> lift: state changes into MOVING
+pivot o-> pivot: state changes into IN_POSITION
+lift o-> lift: state changes into IDLE
+@enduml

@@ -1,0 +1,47 @@
+@startuml
+
+skinparam ParticipantPadding 70
+skinparam actorStyle hollow
+actor "Driver" as driver
+participant "Robot\n.java" as robot
+participant "Whatzit\n.java" as whatzit
+participant "Thingy\n.java" as thingy
+
+||45||
+== step one (zing) ==
+||45||
+driver -> robot: (Y) button
+activate robot
+
+robot -> whatzit: doThis()
+activate whatzit
+robot -> thingy: doThat(THISWAY)
+activate thingy
+
+whatzit o-> whatzit: INTERRUPT to DOING
+
+thingy o-> thingy: INTERRUPT to DOING
+
+||45||
+
+rnote over whatzit: whozit at position
+whatzit o-> whatzit: state to DONE
+robot <- whatzit: end doThis()
+deactivate whatzit
+
+rnote over thingy: thingy thinged
+thingy o-> thingy: state to DONE
+robot <- thingy: end doThat(THISWAY)
+deactivate thingy
+
+deactivate robot
+
+== step two (zoom) ==
+rnote over robot #e3e1f0: robot
+' /rnote over whozit #e3e1f0: whozit
+/rnote over whatzit #e3e1f0: whatzit
+/rnote over thingy #e3e1f0: thingy
+
+... \n\n\n\n\n ...
+
+@enduml
