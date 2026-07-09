@@ -15,3 +15,4 @@ Other useful documentation sites can be found here:
 - [AdvantageKit Documentation](https://docs.advantagekit.org/)
 - [Choreo Documentation](https://choreo.autos/) (both app and library)
 - [Another website with more documentation links!](https://frc.sh)
+- [Electrical Logs Dashboard](https://team2122.github.io/TatorEyes2/recent)
