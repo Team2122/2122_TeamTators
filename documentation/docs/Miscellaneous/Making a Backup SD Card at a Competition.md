@@ -1,17 +1,17 @@
 # Making an SD Card Backup at a Competition
 
-When the robot's code is modified during a competition, we back up the new code on an SD card. This is so that, should the main SD card get corrupted, we can quickly recover.
+When the robot's code is modified during a competition, we back up the new code on an SD card. This is so that, if the main SD card gets corrupted, we can quickly recover it.
 
 # Re-Imaging
 *We usually only do this once at the start of the competition, once at the end of the qualification matches, and always if the card corrupts.*
 
 - You'll need a driver station laptop with an SD card port or adapter.
-- There are several tools to flash SD cards with, but the most reliable one is the [**Raspberry Pi Imager**](https://www.raspberrypi.com/software/) (though [balenaEtcher](https://etcher.balena.io/) also works).
+- There are several tools to flash SD cards with, but the most reliable one is the [**Raspberry Pi Imager**](https://www.raspberrypi.com/software/) (you could also use [balenaEtcher](https://etcher.balena.io/) if needed).
 - You'll need to find the roboRIO2 image. It's usually located at `C:\Program Files (x86)\National Instruments\LabVIEW 2023\project\roboRIO Tool\FRC Images` (and it's been copied to Downloads on at least one laptop), but failing that you can open the *roboRIO Imaging Tool* and click the "SD" folder icon. The zip should have both "roboRIO2" and the current year in the name, e.g. `FRC_roboRIO2_2025_v2.0.img.zip` (it may be in a subfolder).
 - To flash with **Raspberry Pi Imager**:
     - Press `CHOOSE OS`, select *Use custom* at the bottom of the list, and select the .zip you found above.
     - Press `CHOOSE STORAGE` and select the SD card (usually appears as "SDHC Card").
-    - Press `NEXT`, answer `NO` to the customization question, and, after confirming that the SD card is the device named, confirm `YES` to the erasure warning.    
+    - Press `NEXT`, answer `NO` to the customization question, and, after confirming the name of the SD card, confirm `YES` to the erasure warning.    
       <img src="../images/RaspberryPiImager-Warning.png" width=550>
     - Wait for the flashing to finish.
 
@@ -47,7 +47,7 @@ When the robot's code is modified during a competition, we back up the new code 
 ## Test the code
 1. Open the Driver Station software (looks like a play button in a gray box).
 2. Wait for it to connect to the robot and load (it should say "Teleoperated Disabled" or similar, not "No Robot Code" or "No Robot Communication").
-3. Make sure the code isn't complete buns by selecting `TeleOperated`, enabling, disabling, selecting `Autonomous`, enabling, and disabling. At no point during this should the robot code crash. (If it does, then you may need to look into that instead of putting bad code on the SD card.)
+3.  To make sure the code works, check the code by selecting `TeleOperated` mode, enable and then disable it, selecting `Autonomous` mode, enable and then disable it. At no point during this should the robot code crash. (If it does, then you may need to look into error in the code before putting it into the SD card.)
 4. At this point, the SD card is ready. Disconnect the RIO2 from power and take out the SD card.
 
 # Writing a Tag
@@ -77,11 +77,11 @@ Here's what the areas on a full tag mean, plus an example:
 
 ### And now, to write:
 1. Get a piece of tape. It should be big enough to hold all the info, but probably shouldn't be much taller than the SD card itself.
-2. Writing using an ultra-fine marker is best, though a pen could also work (but it smudges, so don't prefer it).
+2. Writing using an ultra-fine marker is best for the readers.
 3. You'll want to write at *least* the hash and revision ID - the hash can identify the commit and the revision can put two SD cards in the correct order - but writing the time is also good.
 4. Once written, fold the tape over the back of the SD card as pictured above (avoid the contacts).
 
 # And now you finally have an SD card ready for a rescue!
 ![](../images/SDCard-Labeled-Tada.png)  
-Now you just need to give it to Wibbels or another mentor on/near the drive team. If they've managed to survive since we got them in 2024, you can put it in the Just In Case<sub>(patent pending)</sub> for safekeeping.  
+Now you could put the SD card in the case for safekeeping and give the case to Wibbels, another mentor, or give it to the drive team.
 ![](../images/JustInCase-Annotated.png)
