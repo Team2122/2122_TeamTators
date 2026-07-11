@@ -1,12 +1,13 @@
 # Maintaining Good Hygiene in AdvantageScope and AdvantageKit
 
-To avoid relying on knowledge being passed down from year to year regarding AdvantageScope and AdvantageKit logging, this page goes through the best practices when creating logs.
+To avoid relying on knowledge being passed down from year to year regarding AdvantageScope and AdvantageKit logging, this page goes through the basic logs that should be implemented, what makes an additional log meaningful or not, and the best practices when creating logs.
 
-### Subsystem Logs to include
+## The Basics
+### Subsystem Logs to Include
 
 When programming subsystems, it is important to include AdvantageScope logs for important information, so if something goes wrong, the source of the problem is easy to find. But what, you ask, should be considered important?
 
-In `Subsystem.java`:
+In the main subsystem file:
 
 The following should be kept in the `log()` method, which is called periodically in `Robot.java` like so:
 
@@ -30,7 +31,7 @@ The following should be kept in the `log()` method, which is called periodically
 
     ```Logger.recordOutput("Simulation/SubsystemPose", new Pose3d[] {subsystemPose}); ```
 
-### Other logs to include (AdvantageKit)
+### Other Logs to Include (AdvantageKit)
 
 These logs show other data not necessarily related to individual subsystems, and are all stored in `robot.java` in the configureAkit() method:
 
@@ -56,7 +57,7 @@ These logs contain the metadata, or data that describes the characteristics of o
 * ```Logger.recordMetadata("GitDirty",switch (BuildConstants.DIRTY) {case 0 -> "All changes committed";case 1 -> "Uncommitted changes";default -> "Unknown";});```
 > Displays whether or not all changes have been commited
 
-#### Receiving data
+#### Receiving Data
 
 This changes based on whether or not we are replaying past inputs or displaying it live, since you don't need to create a new directory when looking at old logs. 
 
@@ -84,27 +85,29 @@ For replayed data:
 * Find the replay log
 
     ```String logPath = LogFileUtil.findReplayLog();```
+    
 * Receive the data from the replay log
 
     ```      Logger.setReplaySource(new WPILOGReader(logPath));```
 
     ```Logger.addDataReceiver(new WPILOGWriter(LogFileUtil.addPathSuffix(logPath, "_replay"))); ```
 
+## Other Meaningful Logs
 
+In certain circumstances, the logs above don't include all the information we need, and we need to log other information as well. Although additional logs are indeed circumstantial, a determining factor of whether or not you <i> should </i> have a log is the question of "does the thing being logged determine whether or not an action happens?"
 
+For example, when determining whether or not a robot can shoot when simulating the robot in the 2026 game, it checks to make sure it has game pieces in the first place, and those game pieces aren't visualized inside of the robot. As a result, it's important to have a log showing how many game pieces are inside of the hopper, so if the robot isn't shooting and there are game pieces, we would know there is a problem.
 
+Things will inevitably go wrong over the course of developing a robot, and that's okay. But in order to fix those things, we need as much information we can about the components of the code that make our robot do what we want it to, so we can see where they fell short as fast as possible.
 
-### Best practices
+## Best Practices
 
 * Keep things organized
     
     * With numerous subsystems working together to make our robot run, the number of logs in AdvantageScope accumulate fast. As a result, we want to make everything as easy to find as possible.
 
     * To do this, we can store our logs within dropdown menus corresponding to each subsystem or util. This is done like so, with the subsystem name acting as the label for the dropdown:
-
     ``` Logger.recordOutput("Subsystem/logName", logValue);```
-
-<br>
 
 * Give meaningful names to your logs
     
@@ -113,8 +116,16 @@ For replayed data:
     * Also try to avoid names that aren't descriptive enough, such as "PickerBoolean".
 
     Instead, opt for names that describe the purpose of a log. For example, instead of naming a boolean that checks if the picker was deployed "PickerBoolean", consider naming it something like "isDeployed", and storing it within the `Picker` dropdown like so:
-
     ```Logger.recordOutput("Picker/isDeployed", deployedCheck);```
+
+* Delete temporary logs
+Don't keep logs in the code that are no longer relevant.
+
+    While relevance is circumstantial, the following are a few examples of logs that might not be worth keeping
+
+    * A log used in the debugging process, like a flag that returns whether or not something happened
+    * Logs for something a previous version of the robot had, but no longer exists (i.e, if we switched from a turret to a fixed shooter, we would no longer need a turret angle log)
+
 
 
 
