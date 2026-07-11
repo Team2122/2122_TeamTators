@@ -13,19 +13,20 @@ The following should be kept in the `log()` method, which is called periodically
 
 ```for (Subsystem subsystem : Subsystem.getSubsystemList()) {subsystem.log();}```
 
-* Automatically logging inputs
+* <b>Automatically logging inputs</b>
     
     Rather than going through the tedious and difficult task of manually logging every single input we might need, processing the inputs automatically logs input values, such as voltage, from various sources in a subsystem. This is where the majority of subsystem logs come from, and is done like so:
 
     ```io.updateInputs(inputs);``` 
     ```Logger.processInputs("Subsystem", inputs);```
 
-* Logging the current command
+* <b>Logging the current command</b>
     
     This shows what input is coming into that subsystem. For example, this log for the Picker subsystem might display `MOVING` or `IN_POSITION`. This is important because if for example the subsystem didn't respond, we could check the logs and make sure that it received a command telling it to move out of it's original position. Below is an example of a log for the current command.
 
     ``` Logger.recordOutput( "Subsystem/CurrentCommand", getPossibleCommand().map(Command::getName).orElse("none"));```
-* Logging the  3D Pose (Optional)
+
+* <b>Logging the  3D Pose (Optional)</b>
 
     In order to simulate the robot in 3D using AdvantageScope, each independently moving component needs it's own `Pose3d` log. (To put a robot into simulation, check out the [3D models in AdvantageScope docs](3dModels.md)) Below is an example of one of these logs.
 
@@ -54,17 +55,20 @@ These logs contain the metadata, or data that describes the characteristics of o
 * ```Logger.recordMetadata("GitBranch", BuildConstants.GIT_BRANCH);```
 >What branch you are on currently
 
-* ```Logger.recordMetadata("GitDirty",switch (BuildConstants.DIRTY) {case 0 -> "All changes committed";case 1 -> "Uncommitted changes";default -> "Unknown";});```
+* ```Logger.recordMetadata("GitDirty",switch (BuildConstants.DIRTY) {case 0 -> "All changes committed";```
+```case 1 -> "Uncommitted changes";default -> "Unknown";});```
 > Displays whether or not all changes have been commited
 
 #### Receiving Data
 
 This changes based on whether or not we are replaying past inputs or displaying it live, since you don't need to create a new directory when looking at old logs. 
 
-For live data:
+<b>For live data: </b>
+
 * make a directory for the log
 
-    ``` File logDir = new File(RobotBase.isReal() ? "/home/lvuser/logs" : "logs");if (!logDir.exists()) {logDir.mkdirs();} ```
+    ``` File logDir = new File(RobotBase.isReal() ? "/home/lvuser/logs" : "logs");```
+    ```if (!logDir.exists()) {logDir.mkdirs();```
 
 * Add data receivers
 
@@ -76,7 +80,7 @@ For live data:
 
     ```new PowerDistribution(1, ModuleType.kRev);```
 
-For replayed data:
+<b> For replayed data: </b>
 
 * Disable the periodic loop to go through the replay as fast as possible
 
@@ -102,24 +106,27 @@ Things will inevitably go wrong over the course of developing a robot, and that'
 
 ## Best Practices
 
-* Keep things organized
+* <b>Keep things organized</b>
     
     * With numerous subsystems working together to make our robot run, the number of logs in AdvantageScope accumulate fast. As a result, we want to make everything as easy to find as possible.
 
     * To do this, we can store our logs within dropdown menus corresponding to each subsystem or util. This is done like so, with the subsystem name acting as the label for the dropdown:
     ``` Logger.recordOutput("Subsystem/logName", logValue);```
 
-* Give meaningful names to your logs
+* <b>Give meaningful names to your logs</b>
     
-    When logging things manually, it is important to give meaningful names to your logs to ensure that others (and possibly even future you) know why you had that log in the first place. Below are a few tips to achieve this. 
+    When logging things manually, it is important to give meaningful names to your logs to ensure that others (and possibly even future you) know why you had that log in the first place. Below are a few tips to achieve this.
+
     * Avoid names that don't carry any meaning at all, like naming a log for a rotation point "bees".
+
     * Also try to avoid names that aren't descriptive enough, such as "PickerBoolean".
 
     Instead, opt for names that describe the purpose of a log. For example, instead of naming a boolean that checks if the picker was deployed "PickerBoolean", consider naming it something like "isDeployed", and storing it within the `Picker` dropdown like so:
     ```Logger.recordOutput("Picker/isDeployed", deployedCheck);```
 
-* Delete temporary logs
-Don't keep logs in the code that are no longer relevant.
+* <b>Delete temporary logs</b>
+
+    Don't keep logs in the code that are no longer relevant.
 
     While relevance is circumstantial, the following are a few examples of logs that might not be worth keeping
 
