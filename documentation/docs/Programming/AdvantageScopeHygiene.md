@@ -132,7 +132,3 @@ Things will inevitably go wrong over the course of developing a robot, and that'
 
     * A log used in the debugging process, like a flag that returns whether or not something happened
     * Logs for something a previous version of the robot had, but no longer exists (i.e, if we switched from a turret to a fixed shooter, we would no longer need a turret angle log)
-
-
-
-
