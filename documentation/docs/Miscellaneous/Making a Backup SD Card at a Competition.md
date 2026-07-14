@@ -47,7 +47,12 @@ When the robot's code is modified during a competition, we back up the new code 
 ## Test the code
 1. Open the Driver Station software (looks like a play button in a gray box).
 2. Wait for it to connect to the robot and load (it should say "Teleoperated Disabled" or similar, not "No Robot Code" or "No Robot Communication").
-3.  To make sure the code works, check the code by selecting `TeleOperated` mode, enable and then disable it, selecting `Autonomous` mode, enable and then disable it. At no point during this should the robot code crash. (If it does, then you may need to look into error in the code before putting it into the SD card.)
+3. To make sure that the code works...
+    - Select TeleOperated Mode
+    - Enable, then disable
+    - Select Autonomous mode
+    - Enable, then disable
+At no point during any of this should the code crash. If it does, view the error rather than putting faulty code on the SD card.
 4. At this point, the SD card is ready. Disconnect the RIO2 from power and take out the SD card.
 
 # Writing a Tag
@@ -77,11 +82,11 @@ Here's what the areas on a full tag mean, plus an example:
 
 ### And now, to write:
 1. Get a piece of tape. It should be big enough to hold all the info, but probably shouldn't be much taller than the SD card itself.
-2. Writing using an ultra-fine marker is best for the readers.
-3. You'll want to write at *least* the hash and revision ID - the hash can identify the commit and the revision can put two SD cards in the correct order - but writing the time is also good.
+2. Writing using an ultra-fine marker is best.
+3.  Write the hash (what identifies the commit), revision ID (what can be used to put 2 SD cards in the correct order), as well as time.
 4. Once written, fold the tape over the back of the SD card as pictured above (avoid the contacts).
 
 # And now you finally have an SD card ready for a rescue!
-![](../images/SDCard-Labeled-Tada.png)  
-Now you could put the SD card in the case for safekeeping and give the case to Wibbels, another mentor, or give it to the drive team.
-![](../images/JustInCase-Annotated.png)
+![SD card is showing with it's name](../images/SDCard-Labeled-Tada.png)  
+Now, you can place the SD card in the Just In Case for safe keeping, and then give it to a mentor or member of the drive team.
+![Card Placement](../images/JustInCase-Annotated.png)
