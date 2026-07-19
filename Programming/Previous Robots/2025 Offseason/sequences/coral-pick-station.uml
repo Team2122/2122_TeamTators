@@ -1,0 +1,30 @@
+@startuml
+
+actor "Driver" as driver
+participant "Robot\n.java" as robot
+participant "Overwatcher\n.java" as overwatcher
+participant "Affector\n.java" as affector
+
+driver -> robot: (TBD) button
+activate robot
+
+robot -> overwatcher: goTo(STATION) command scheduled
+activate overwatcher
+rnote over overwatcher: overwatcher at station
+
+robot -> affector: grab() command scheduled
+activate affector
+rnote over affector: rollers/grab started
+
+rnote over affector: affector finishes grab
+affector -> robot: grab() command ends
+deactivate affector
+
+robot -> overwatcher: goTo(HOME) command scheduled
+rnote over overwatcher: overwatcher returns home
+overwatcher -> robot: goTo(HOME) command ends
+deactivate overwatcher
+
+deactivate robot
+
+@enduml

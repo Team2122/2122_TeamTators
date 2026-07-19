@@ -1,0 +1,53 @@
+@startuml
+
+skinparam actorStyle hollow
+actor "Driver" as driver
+participant "Robot\n.java" as robot
+participant "Climber\n.java" as clmb
+
+participant "AlgaeAffector\n.java" as algae
+participant "CoralAffector\n.java" as coral
+participant "Funnel\n.java" as funnel
+participant "Lift\n.java" as lift
+
+
+driver -> robot: (B) button
+activate robot
+
+robot -> algae: algae release() command scheduled
+activate algae
+
+robot -> coral: coral release() command scheduled
+activate coral
+
+robot -> funnel: move(FunnelPositions.STOWED) command scheduled
+activate funnel
+
+rnote over algae: algae affector is in holding state
+algae -> robot: algae release() command ends
+deactivate algae
+
+rnote over coral: coral affector is in holding state
+coral -> robot: coral release() command ends
+deactivate coral
+
+rnote over funnel: funnel is in stored position
+funnel -> robot: move(FunnelPositions.STOWED) command ends
+deactivate funnel
+
+robot -> lift: goTo(LiftPos.HOME) command scheduled
+activate lift
+rnote over lift: lift has reached\nhome position
+lift -> robot: goTo(LiftPos.HOME) command ends
+deactivate lift
+
+robot -> clmb: climb()
+activate clmb
+rnote over clmb: in position
+robot <- clmb: end climb
+deactivate clmb
+deactivate robot
+
+
+deactivate robot
+@enduml

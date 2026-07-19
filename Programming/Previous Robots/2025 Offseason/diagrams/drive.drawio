@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0" version="26.2.12">
+  <diagram name="Page-1" id="ghZf27bVA3cM43sRszJa">
+    <mxGraphModel dx="1408" dy="758" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-35" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=12 12;" parent="1" vertex="1">
+          <mxGeometry x="330" y="390" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-18" value="INTERRUPT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="556" y="420" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-2" value="INIT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="350" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-6" value="MOVING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="350" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="KmkDQmhvyMfo8U4C-xb4-9" target="KmkDQmhvyMfo8U4C-xb4-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-17" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Instant&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KmkDQmhvyMfo8U4C-xb4-25">
+          <mxGeometry x="-0.15" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-9" value="Nothing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="340" y="270" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-14" value="Spin Motors (Based on Driver Input)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="340" y="450" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="KmkDQmhvyMfo8U4C-xb4-36" target="KmkDQmhvyMfo8U4C-xb4-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="425" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="760" y="425" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-29" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="425" as="sourcePoint" />
+            <mxPoint x="830" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-34" value="Instant" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 4;strokeWidth=0;strokeColor=light-dark(#ffffff, #ededed);" parent="1" vertex="1">
+          <mxGeometry x="490" y="413" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="KmkDQmhvyMfo8U4C-xb4-36" value="Drive Command" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="660" y="412.5" width="90" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-9" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=12 12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="542" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-10" value="INTERRUPT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="556" y="572" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-11" value="ALIGNING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="350" y="562" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-12" value="Spin Motors (Based on Goal Pose)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="340" y="602" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="uLSFopbzuTb3rlBcZSNf-16" target="uLSFopbzuTb3rlBcZSNf-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="577" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="760" y="577" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-14" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="577" as="sourcePoint" />
+            <mxPoint x="830" y="512" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-15" value="Instant" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 4;strokeWidth=0;strokeColor=light-dark(#ffffff, #ededed);" vertex="1" parent="1">
+          <mxGeometry x="490" y="565" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="uLSFopbzuTb3rlBcZSNf-16" value="Align Command" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="660" y="564.5" width="90" height="25.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

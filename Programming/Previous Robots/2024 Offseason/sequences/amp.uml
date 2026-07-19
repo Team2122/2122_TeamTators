@@ -1,0 +1,94 @@
+@startuml
+
+skinparam actorStyle hollow
+actor "Driver" as driver
+participant "Robot\n.java" as robot
+participant "Pivot\n.java" as pivt
+participant "UpperNotePath\n.java" as unpa
+control "Amp\nsubstate\nmachine" as ssm
+participant "KingRollers\n.java" as king
+
+!procedure $insert_participants()
+rnote over robot #e3e1f0: robot
+/rnote over pivt #e3e1f0: pivot
+/rnote over ssm #e3e1f0: substate\nmachine
+/rnote over unpa #e3e1f0: upper note path
+/rnote over king #e3e1f0: king rollers
+!endprocedure
+
+== step one (prep) ==
+
+driver -> robot: (Y) button
+activate robot
+
+robot -> pivt: goTo(AMP)
+activate pivt
+robot -> unpa: startAmp
+activate unpa
+
+pivt o-> pivt: INTERRUPT to MOVING
+
+unpa o-> unpa: INTERRUPT to AMP
+unpa -> ssm: start
+activate ssm
+ssm o-> ssm: INTERRUPT to PREPARE
+ssm -> unpa: flipDiverterUp
+
+rnote over pivt: in position
+pivt o-> pivt: state to IN_POSITION
+robot <- pivt: end goTo
+deactivate pivt
+
+rnote over ssm: diverter in position
+ssm o-> ssm: state to WAIT
+robot <- ssm: end startTrap
+deactivate unpa
+
+deactivate robot
+
+== step two (dunk) ==
+$insert_participants()
+
+driver -> robot: (A) button
+activate robot
+robot -> unpa: endAmp
+activate unpa
+
+robot -> king: feed
+activate king
+
+unpa -> ssm: endAmp
+ssm o-> ssm: INTERRUPT to DROP
+ssm -> unpa: setShooterSpeeds(AMP)
+ssm -> unpa: setDunkerVoltage
+
+king o-> king: INTERRUPT to FEED
+rnote over king: safetySensor false
+king o-> king: state to EMPTY
+king -> robot: end feed
+deactivate king
+
+rnote over ssm: dunker sensor true
+ssm o-> ssm: state to ALMOSTOUT
+rnote over ssm: dunker sensor false
+rnote over ssm: delay
+ssm o-> ssm: state to DONE
+unpa <- ssm: done
+deactivate ssm
+unpa o-> unpa: state to IDLE
+robot <- unpa: end endAmp
+deactivate unpa
+
+== step three (reset) ==
+robot -> pivt: goTo(HOME)
+activate pivt
+pivt o-> pivt: INTERRUPT to MOVING
+
+rnote over pivt: in position
+pivt o-> pivt: state to IN_POSITION
+robot <- pivt: end goTo
+deactivate pivt
+
+deactivate robot
+
+@enduml

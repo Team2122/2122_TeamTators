@@ -1,0 +1,33 @@
+@startuml
+
+actor "Driver" as driver
+participant "Robot\n.java" as robot
+participant "Lift\n.java" as lift
+participant "AlgaeAffector\n.java" as algae
+
+driver -> robot: (TBD) button
+activate robot
+
+robot -> lift: goTo(PROCESSOR) command scheduled
+activate lift
+rnote over lift: lift has reached\nprocessor position
+lift -> robot: goTo(PROCESSOR) command ends
+deactivate lift
+
+robot -> algae: turnOff() command scheduled
+activate algae
+rnote over algae: algae leaves the\nalgae affector
+algae -> robot: suction off
+deactivate algae
+
+robot o-> robot : small delay to prevent tongue\ncolliding with the frame
+
+robot -> lift: goTo(HOME) command scheduled
+activate lift
+rnote over lift: lift has reached\nhome position
+lift -> robot: goTo(HOME) command ends
+deactivate lift
+
+deactivate robot
+
+@enduml

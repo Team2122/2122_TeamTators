@@ -1,0 +1,33 @@
+@startuml
+actor driver
+driver -> Robot.java : button press
+activate Robot.java
+
+Robot.java -> Shift.java : liftGoTo(position)
+activate Shift.java
+rnote over Shift.java : lift in position
+Shift.java -> Robot.java : liftGoto() command ends
+deactivate Shift.java
+
+Robot.java -> CoralAffector.java : grab() command
+activate CoralAffector.java
+
+Robot.java -> CoralPicker.java : pick() command
+activate CoralPicker.java
+
+rnote over CoralAffector.java, CoralPicker.java : coral grabbed
+
+CoralAffector.java -> Robot.java : grab() command ends
+deactivate CoralAffector.java
+
+CoralPicker.java -> Robot.java : pick() command interrupted
+deactivate CoralPicker.java
+
+Robot.java -> Shift.java : liftGoTo(CORAL_L2)
+activate Shift.java
+rnote over Shift.java : lift in position
+Shift.java -> Robot.java : liftGoTo() command ends
+deactivate Shift.java
+
+deactivate Robot.java
+@enduml

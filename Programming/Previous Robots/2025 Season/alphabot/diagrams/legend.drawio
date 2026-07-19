@@ -1,0 +1,169 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.4 Chrome/126.0.6478.234 Electron/31.4.0 Safari/537.36" modified="2024-08-31T22:10:06.209Z" version="24.6.4" etag="legja4nJMhPbvg6eWL2D" type="device">
+  <diagram name="Page-1" id="Cdc8fbk87462qghTU7tj">
+    <mxGraphModel dx="1414" dy="338" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HsFftkat-esIyQTzqQLw-1" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="498" width="200" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-1" value="A" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="135" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-2" value="A description of actions that happen immediately" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="125" y="280" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-3" value="INIT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="135" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="afMEnsb2fvvh2wD9h0aD-4" target="afMEnsb2fvvh2wD9h0aD-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-6" value="initialization has&lt;div&gt;finished (mechanism&lt;/div&gt;&lt;div&gt;has homed,&amp;nbsp;&lt;/div&gt;&lt;div&gt;could be instant)&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="afMEnsb2fvvh2wD9h0aD-5" vertex="1" connectable="0">
+          <mxGeometry x="-0.3667" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-4" value="Actions for initialization (zeroing encoders, etc.)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="125" y="100" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="afMEnsb2fvvh2wD9h0aD-7" target="afMEnsb2fvvh2wD9h0aD-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="50" y="540" />
+              <mxPoint x="50" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-10" value="condition on which&lt;div&gt;B should transition&lt;/div&gt;&lt;div&gt;to A&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="afMEnsb2fvvh2wD9h0aD-9" vertex="1" connectable="0">
+          <mxGeometry x="-0.0061" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-7" value="B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="135" y="518" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-8" value="A description of actions that happen immediately" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="125" y="558" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-13" value="A description of actions that happen continuously" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="125" y="598" width="145" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-14" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#b0e3e6;strokeColor=#0e8088;" parent="1" vertex="1">
+          <mxGeometry x="250" y="598" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-15" value="INTERRUPT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="460" y="380" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-17" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="390" as="sourcePoint" />
+            <mxPoint x="710" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-18" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="afMEnsb2fvvh2wD9h0aD-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="390" as="sourcePoint" />
+            <mxPoint x="310" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="390" />
+              <mxPoint x="400" y="548" />
+              <mxPoint x="300" y="548" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-19" value="example&lt;div&gt;command&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="afMEnsb2fvvh2wD9h0aD-18" vertex="1" connectable="0">
+          <mxGeometry x="-0.7934" y="1" relative="1" as="geometry">
+            <mxPoint x="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-20" value="instant" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="afMEnsb2fvvh2wD9h0aD-18" vertex="1" connectable="0">
+          <mxGeometry x="0.3846" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-21" value="An arrow going through a state like this means the current state is overriden as that state, and the new state is set to the state pointed to. In this case, currentState is overriden as INTERRUPT and newState is set to B" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="460" y="190" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-22" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="afMEnsb2fvvh2wD9h0aD-15" target="afMEnsb2fvvh2wD9h0aD-21" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="300" as="sourcePoint" />
+            <mxPoint x="310" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-23" value="INTERRUPT is a dummy state used to transition to a new state set by a command. It is unique in that, in documentation, it implicitly does nothing, and can be used multiple times throughout a diagram to represent one state" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="450" y="440" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-24" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="afMEnsb2fvvh2wD9h0aD-23" target="afMEnsb2fvvh2wD9h0aD-15" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="420" as="sourcePoint" />
+            <mxPoint x="520" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-25" value="A green box represents a state a subsystem can be in. A subsystem can only be in one state at a time, and always starts in the INIT state" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="310" y="10" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-26" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="afMEnsb2fvvh2wD9h0aD-3" target="afMEnsb2fvvh2wD9h0aD-25" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="300" as="sourcePoint" />
+            <mxPoint x="310" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-27" value="Blue boxes describe an action that the subsystem will perform while in this state" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="10" y="780" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-28" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="afMEnsb2fvvh2wD9h0aD-27" target="afMEnsb2fvvh2wD9h0aD-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="538" as="sourcePoint" />
+            <mxPoint x="310" y="488" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-29" value="A teal circle on a blue box indicates that this action is run continuously. The lack of one means that action is only run once upon entering that state" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="240" y="775" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-30" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="afMEnsb2fvvh2wD9h0aD-14" target="afMEnsb2fvvh2wD9h0aD-29" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="578" as="sourcePoint" />
+            <mxPoint x="250" y="528" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-31" value="Action run upon exiting B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="250" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-32" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" target="afMEnsb2fvvh2wD9h0aD-31" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="480" as="sourcePoint" />
+            <mxPoint x="220" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-33" value="A purple box describes an action upon exiting a state. These differ from usage of a blue box in that the code is run upon state exit rather than entry. This could be useful for resetting an encoder after a HOMING state, for example" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="290" y="140" width="150" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-34" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="afMEnsb2fvvh2wD9h0aD-31" target="afMEnsb2fvvh2wD9h0aD-33" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="320" as="sourcePoint" />
+            <mxPoint x="170" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-35" value="This notation of a dashed arrow from nowhere feeding into a solid line indicates control from a separate level, such as from the main Robot class. In this case, a command (usually from a button or trigger bound in Robot) needs to change the state of this subsystem" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="690" y="410" width="150" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="afMEnsb2fvvh2wD9h0aD-36" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" target="afMEnsb2fvvh2wD9h0aD-35" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="660" y="390" as="sourcePoint" />
+            <mxPoint x="330" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HsFftkat-esIyQTzqQLw-3" value="A dotted box surrounding a state or set of states represents a command. Commands will set the new state to wherever the arrow enters the box (in this case, B), and they will finish when an arrow leaves the box. (in this case, when the state is no longer B)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="400" y="598" width="250" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="HsFftkat-esIyQTzqQLw-4" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="HsFftkat-esIyQTzqQLw-1" target="HsFftkat-esIyQTzqQLw-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="540" as="sourcePoint" />
+            <mxPoint x="430" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
