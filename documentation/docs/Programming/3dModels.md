@@ -120,7 +120,7 @@ Next, **create a new folder** in VS Code. In the 2026 code for example, this fol
 
 * **model.glb** - This is your base model, where every part that doesn't move separately goes. This includes things like the drivebase and other parts that don't rotate or move up and down. If you need to add another part in order to update this, see [Combining Files in Cad Assistant](#combining-files-in-cad-assistant).
 
-* **model0.glb** - This is your first separately moving component. From 0, the number increases (ie: model1.glb, model2.glb...)
+* **model_0.glb** - This is your first separately moving component. From 0, the number increases (ie: model_1.glb, model_2.glb...)
 
 **NOTE**:  In your `config.json`, the components must be in the same order as your models. If a component's file is named `model1.glb`, it cannot be first in the array.
 
