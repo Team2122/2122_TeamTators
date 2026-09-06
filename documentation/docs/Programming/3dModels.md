@@ -14,7 +14,7 @@ The following are other pieces of documentation needed to create models and arti
 
 * [WPI-Lib Pose 3D](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Pose3d.html)
 
-> The java documentation regarding the different methods used for Pose 3d.
+> The java documentation regarding the different methods used for Pose3d.
 
 * [CAD Assistant Download](https://dev.opencascade.org/project/cad-assistant)
 
@@ -140,7 +140,7 @@ Copy the path of the folder that holds your [Robot_](#folder-and-files) folder, 
 Now, we get to the most important part of the process: putting your models into action. For now, put the following log into your RobotPeriodic() in Robot.java:
 
 ```
-Logger.recordOutput("Zeroed Component Poses", new Pose3d[] {new Pose 3d()});
+Logger.recordOutput("Zeroed Component Poses", new Pose3d[] {new Pose3d()});
 ```
 
 What this does:
@@ -199,14 +199,15 @@ Then, depending on if your component rotates about a point or moves up/down or l
 <li> Example: </li>
 
 ```
-double timer = new timer.getTimeStamp();
+double timer = new Timer.getTimeStamp();
 
 log(){
      if (Constants.ROBOT_MEDIUM != RobotMedium.REAL) {
-        Rotation3d rotationPoint = time;
+        Rotation3d rotationPoint = new Rotation3d(0,0,time); 
+        //put the rotation in the axis of your choosing!
     
-        Pose3d componentPose =           Pose3d.kZero.rotateAround(SubsystemConstants.COMPONENT_ROTATION_POINT, rotationPoint);
-        Logger.RecordOutput("3D Models",   new Pose 3d[] {componentPose});
+        Pose3d componentPose = Pose3d.kZero.rotateAround(SubsystemConstants.COMPONENT_ROTATION_POINT, rotationPoint);
+        Logger.RecordOutput("3D Models",new Pose3d[]{componentPose});
     }
 }
 
