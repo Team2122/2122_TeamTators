@@ -1,4 +1,4 @@
-# Configuring Vision on the Robot
+# How to do Vision Turn-On
 
 
 Vision, the subsystem we use to detect the April Tags on the field, takes some mildly painstaking setup when loading it on the bot for the first time. Fortunately, we put together this documentation page, hopefully preventing us from needing to track down a Tator of years past to help in the future.
@@ -181,4 +181,4 @@ Lastly, we want to make sure it all works togther.
 
 8. Hold up a tag. Is the robot where it should be on the field? If it is detecting the tag but not facing the right way/it's position is off, you might have not negated the camera position values in the `Translation3d` correctly, so go do that are re-deploy your code. One way to make sure the robot is facing the right way is to either use a placeholder like the DuckBot or our beloved 3D models in sim model if available. To change the type of robot, click the icon next to `Drive/Pose` in your `Poses` box and select whatever robot from the list in the dropdown that appears.
 
-If after all this, your robot is in the right spot, you did it! At last, your robot can see!
+If after all this your robot is in the right spot, you did it! At last, your robot can see!
