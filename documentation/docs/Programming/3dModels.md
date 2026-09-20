@@ -14,7 +14,7 @@ The following are other pieces of documentation needed to create models and arti
 
 * [WPI-Lib Pose 3D](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Pose3d.html)
 
-> The java documentation regarding the different methods used for Pose 3d.
+> The java documentation regarding the different methods used for Pose3d.
 
 * [CAD Assistant Download](https://dev.opencascade.org/project/cad-assistant)
 
@@ -120,7 +120,7 @@ Next, **create a new folder** in VS Code. In the 2026 code for example, this fol
 
 * **model.glb** - This is your base model, where every part that doesn't move separately goes. This includes things like the drivebase and other parts that don't rotate or move up and down. If you need to add another part in order to update this, see [Combining Files in Cad Assistant](#combining-files-in-cad-assistant).
 
-* **model0.glb** - This is your first separately moving component. From 0, the number increases (ie: model1.glb, model2.glb...)
+* **model_0.glb** - This is your first separately moving component. From 0, the number increases (ie: model_1.glb, model_2.glb...)
 
 **NOTE**:  In your `config.json`, the components must be in the same order as your models. If a component's file is named `model1.glb`, it cannot be first in the array.
 
@@ -140,7 +140,7 @@ Copy the path of the folder that holds your [Robot_](#folder-and-files) folder, 
 Now, we get to the most important part of the process: putting your models into action. For now, put the following log into your RobotPeriodic() in Robot.java:
 
 ```
-Logger.recordOutput("Zeroed Component Poses", new Pose3d[] {new Pose 3d()});
+Logger.recordOutput("Zeroed Component Poses", new Pose3d[] {new Pose3d()});
 ```
 
 What this does:
@@ -199,14 +199,15 @@ Then, depending on if your component rotates about a point or moves up/down or l
 <li> Example: </li>
 
 ```
-double timer = new timer.getTimeStamp();
+double timer = new Timer.getTimeStamp();
 
 log(){
      if (Constants.ROBOT_MEDIUM != RobotMedium.REAL) {
-        Rotation3d rotationPoint = time;
+        Rotation3d rotationPoint = new Rotation3d(0,0,time); 
+        //put the rotation in the axis of your choosing!
     
-        Pose3d componentPose =           Pose3d.kZero.rotateAround(SubsystemConstants.COMPONENT_ROTATION_POINT, rotationPoint);
-        Logger.RecordOutput("3D Models",   new Pose 3d[] {componentPose});
+        Pose3d componentPose = Pose3d.kZero.rotateAround(SubsystemConstants.COMPONENT_ROTATION_POINT, rotationPoint);
+        Logger.RecordOutput("3D Models",new Pose3d[]{componentPose});
     }
 }
 
