@@ -1,6 +1,6 @@
 # How to Do Vision Turn-On
 
-Vision, the subsystem we use to detect the April Tags on the field, takes some mildly painstaking setup when loading it on the bot for the first time. Fortunately, we put together this documentation page, hopefully preventing us from needing to track down a Tator of years past to help in the future.
+Vision, the subsystem we use to detect the AprilTags on the field, takes some mildly painstaking setup when loading it on the bot for the first time. Fortunately, we put together this documentation page, hopefully preventing us from needing to track down a Tator of years past to help in the future.
 
 <br>
 
@@ -53,7 +53,7 @@ To get both the angles and positions of the camera, we can turn to Onshape. If y
 
 ![GetPosFromMinDistance](../images/getCameraPos.png)
 
-Assuming the robot is facing forwards and we are looking at the back, if your camera was on the right-hand side, then your Y value (distance right/left) would need to be negative. In the same vein, if your camera was on the front half of the robot instead of the back half, then your X value would be negative. Your Z value should never be negative because then our camera would be underground, and I doubt there are many April tags down there.
+Assuming the robot is facing forwards and we are looking at the back, if your camera was on the right-hand side, then your Y value (distance right/left) would need to be negative. In the same vein, if your camera was on the front half of the robot instead of the back half, then your X value would be negative. Your Z value should never be negative because then our camera would be underground, and I doubt there are many AprilTags down there.
 
 <br>
 
@@ -114,7 +114,7 @@ Now that we have our camera positions and they have their operating systems inst
 
 First, we need to download [Advanced IP Scanner](https://www.advanced-ip-scanner.com/). This is what allows us to detect what IP addresses are in the vicinity, including our mysterious camera! Make sure to set the scanning range from 10.21.22.1-254, so we are only checking for IP addresses for the robot instead of everything in the vacinity. Then, click scan!
 
-So, an example of this would be `10.21.22.201`. Once we find this IP address, we can type it into our browser, and attach the port `:5800` to the end. If all is well, it should open up our web interface for one of our cameras!
+So, an example of this would be `10.21.22.201`. Once we find this IP address, we can type it into our browser, and attach the port `:5800` to the end if you are using PhotonVision. If all is well, it should open up our web interface for one of our cameras!
 
 However, we don't want to have to scan for this every single time we want to boot up the web interface. Instead, we go into settings, make the IP static, and change the super secret number to a number in the range of 6-19, and re-open the interface.
 
@@ -126,13 +126,43 @@ So, if we were opening up the interface again and set our super secret number to
 
 [] If your camera is upside-down or sideways, then change the camera orientation in the web interface, so it is facing upright
 
-[] Hold an April tag at least a couple steps away from the camera. If it can't detect it (there isn't a brightly-colored box that lights up around the tag in the interface), mess with the exposure and brightness until it can.
+[] Hold an AprilTag at least a couple steps away from the camera. If it can't detect it (there isn't a brightly-colored box that lights up around the tag in the interface), mess with the exposure and brightness until it can.
 
 **Note**: We often have to compromise with better detection through better resultion/exposure and lower latency. A higher latency (lag) could mean that by the time the camera updates and we detect a tag, we are in a totally different position, so we want to minimize it as much as possible while still detecting tags in the first place. The code should allow for quite a bit of latency, but a good goal for a minimum FPS would likely be around 30-45 frames per second. 
+
+[] If you are using Limelight, make sure to input your camera positions relative to the origin in meters in the 3D/Orientation tab
 
 **Repeat the steps in the above 2 sections for each of your cameras.**
 
 <br>
+
+#### Camera Callibration
+
+Now that our amazing robot has vision, we need to calibrate the cameras so they can detect tags. 
+
+**PhotonVision - Calibrating Cameras**
+
+[] Aquire a printed-out checkerboard. This will be the calibration reference.
+
+[] Go to the calibration tab for the web interface for whichever camera you're calibrating and follow the instructions on-screen, taking at least 50 photos of the checkerboard from various angles and distances. The key here is to get a really solid data set full of a ton of different angles and distances, rather than just head-on.
+
+[] Save and apply the configuration 
+
+[] Open up the AprilTag pipeline settings (still inside the web interface) and in the Mode selector, change it from 2D to 3D
+
+[] Enter the exact size of the AprilTag into the Tag Size input
+
+[] Verify it works by holding up an AprilTag near the camera. If everything worked, then a cube should overlay on top of the tag on the web interface, rather than the square you should have had before.
+
+**Limelight - Camera setup**
+
+Thankfully, there is no painstaking process for Limelight cameras to perform 3D tag detection. However, we want to make sure that we do these extra things inside the Limelight hardware manager
+
+[] Inside the input tab, change "Pipeline Type" to "Fiducial Markers" and make the highest available resolution for 3D tracking.
+
+[] Set the "Black Level" to zero and the "Gain" to 15 (also in input tab)
+
+[] Go to the Standard Tab and make sure "family" is set to "AprilTag Classic 36h11"
 
 #### Testing it out!
 
