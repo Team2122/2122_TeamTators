@@ -24,7 +24,10 @@ The above is an example of the position of a right-facing camera which uses Phot
 
 Meanwhile, the `Rotation3d` determines how the camera is rotated in roll, pitch, and yaw. Roll, pitch, and yaw are applied in the order of yaw, pitch, and then roll, so basically backwards of the order they are defined.
 
-One way to visiualise it is that roll rotation works like how a steering wheel spins, moving horizontally along a lateral axis. Pitch moves up and down, like nodding your head, while yaw is like shaking your head, turning side to side. The negative value in the roll argument above indicates that the camera is pointing up by 40 degrees. To indicate that our camera is facing right, we turn 90 degrees clockwise for the yaw argument. If we were facing left, this number would be negative.
+One way to visualize it is that roll rotation works like how a steering wheel spins, moving horizontally along a lateral axis. Pitch moves up and down, like nodding your head, while yaw is like shaking your head, turning side to side. The negative value in the roll argument above indicates that the camera is pointing up by 40 degrees. To indicate that our camera is facing right, we turn 90 degrees clockwise for the yaw argument. If we were facing left, this number would be negative.
+
+Another way to visualize it is to just look at this wonderful image, which shows each of the axes of rotation.
+![DuckAxes](../images/duckyaw.png)
 
 To get both the angles and positions of the camera, we can turn to Onshape. If you don't have access, you definitely should ask whoever is in charge of CAD fall training, and it is generally wonderful for getting a lot of values and gaining an understanding for how things work instead of pestering Mechanical.
 
@@ -84,7 +87,7 @@ This is what we use to put the camera OS on whatever camera we are using. There 
 [PhotonVision Image (PhotonVision ONLY)](https://github.com/PhotonVision/photonvision)
 For this one, just go to the latest version tag and install the image for the type of hardware you are using.
 
-[Limelight OS/Limlight Hardware App download (Limelight software ONLY)](https://docs.limelightvision.io/docs/resources/downloads)
+[Limelight OS/Limelight Hardware App Download (Limelight software ONLY)](https://docs.limelightvision.io/docs/resources/downloads)
 Go to the latest version of Limelight OS and install the zip file for whichever limelight you are using. From here, you can also install the Limelight Hardware Application, which you should install based on what type of computer you are using.
 
 <br>
@@ -99,7 +102,7 @@ Go to the latest version of Limelight OS and install the zip file for whichever 
 
    [] Select the .img.xz file you downloaded earlier from the github repo (or .zip for Limelight)
 
-[] For storage, the camera you are plugged into should pop up. NEVER EVER uncheck the box that excludes system devices, unless you want to end up replacing your own computers operating system with the one for the camera, which is not a great plan.
+[] For storage, the camera you are plugged into should pop up. NEVER EVER uncheck the box that excludes system devices, unless you want to end up replacing your own computer's operating system with the one for the camera, which is not a great plan.
 
 After it finishes the imaging process, the camera should be ready to run! Repeat the previous steps (minus installing the apps and images of course) for all of your cameras.
 
@@ -109,9 +112,7 @@ After it finishes the imaging process, the camera should be ready to run! Repeat
 
 Now that we have our camera positions and they have their operating systems installed, we need to open up the web interface. However, we are met with a problem: we don't know what the IP address to open up the interface is right now. So, let's figure it out!
 
-First, we need to download [Advanced IP Scanner](https://www.advanced-ip-scanner.com/). This is what allows us to detect what IP addresses are in the vicinity, including our mysterious camera! Make sure to set the scanning range from 10.[first digits of team #][last digits of team number #].1-254, so we are only checking for IP addresses for the robot instead of everything in the vacinity.
-
-Using this, hit scan, and look for an IP address that starts with 10.[First couple digits of team #].[second couple of digits of team #].??
+First, we need to download [Advanced IP Scanner](https://www.advanced-ip-scanner.com/). This is what allows us to detect what IP addresses are in the vicinity, including our mysterious camera! Make sure to set the scanning range from 10.21.22.1-254, so we are only checking for IP addresses for the robot instead of everything in the vacinity. Then, click scan!
 
 So, an example of this would be `10.21.22.201`. Once we find this IP address, we can type it into our browser, and attach the port `:5800` to the end. If all is well, it should open up our web interface for one of our cameras!
 
@@ -121,7 +122,7 @@ So, if we were opening up the interface again and set our super secret number to
 
 ### Camera Configuration
 
-[] Make sure to set the name of your camera to the same name as whatever is in the code. We love consistency!
+[] Make sure to set the name of your camera to the same name as whatever is in the code by clicking on the pencil next to the camera name in the dropdown in the top right of the dashboard. We love consistency!
 
 [] If your camera is upside-down or sideways, then change the camera orientation in the web interface, so it is facing upright
 
