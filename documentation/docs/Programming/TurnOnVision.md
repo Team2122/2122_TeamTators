@@ -88,7 +88,7 @@ This is what we use to put the camera OS on whatever camera we are using. There 
 For this one, just go to the latest version tag and install the image for the type of hardware you are using.
 
 [Limelight OS/Limelight Hardware App Download (Limelight software ONLY)](https://docs.limelightvision.io/docs/resources/downloads)
-Go to the latest version of Limelight OS and install the zip file for whichever limelight you are using. From here, you can also install the Limelight Hardware Application, which you should install based on what type of computer you are using.
+Go to the latest version of Limelight OS and install the zip file for whichever Limelight you are using. From here, you can also install the Limelight Hardware Application, which you should install based on what type of computer you are using.
 
 <br>
 
