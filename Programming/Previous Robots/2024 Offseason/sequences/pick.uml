@@ -1,0 +1,34 @@
+@startuml
+
+skinparam actorStyle hollow
+actor "Driver" as driver
+participant "Robot.java" as robot
+participant "Picker.java" as picker
+participant "KingRollers.java" as king
+
+driver -> robot: Left Trigger
+activate robot
+robot -> picker: schedule pick()
+
+activate picker
+picker o-> picker: INTERRUPT to PICKING
+rnote over picker: either entrance sensor true
+picker o-> picker: state to PULLING
+picker -> robot: command end
+deactivate robot
+
+rnote over picker: chimney sensor true
+/rnote over king: chimney sensor true
+picker o-> picker: state to LEAVING
+activate king
+king o-> king: state to PULLING
+
+rnote over picker: chimney sensor false
+picker o-> picker: state to IDLE
+deactivate picker
+
+rnote over king: exit sensor true
+king o-> king: state to READY
+deactivate king
+
+@enduml

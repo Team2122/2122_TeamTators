@@ -1,0 +1,35 @@
+@startuml
+skinparam actorStyle hollow
+
+actor "Driver" as driver
+participant "Robot.java" as robot
+participant "Algae.java" as algae
+
+
+
+driver -> robot: button pressed
+activate robot
+robot -> algae: Suck command
+activate algae
+algae o-> algae: State to SUCKING
+algae o-> algae: Motor inwards
+
+rnote over algae: Algae detected or timeout
+algae o-> algae: State to HAS_ALGAE
+algae o-> algae: Hold power
+deactivate algae
+deactivate robot
+
+driver -> robot: button pressed
+activate robot
+robot -> algae: Spit command
+activate algae
+algae o-> algae: State to SPITTING
+algae -> algae: Motor outwards
+rnote over algae: Algae released or timeout
+
+algae o-> algae: State to IDLE
+rnote over algae: Do nothing
+deactivate algae
+deactivate robot
+@enduml

@@ -1,0 +1,66 @@
+@startuml
+
+actor "Driver" as driver
+participant "Robot\n.java" as robot
+participant "CoralPicker\n.java" as coral
+participant "Overwatcher\n.java" as overwatcher
+participant "ChamberOfCorals\n.java" as chamber
+participant "Affector\n.java" as affector
+
+driver -> robot: (TBD) button
+activate robot
+
+robot -> overwatcher: goTo(HOME) command scheduled
+activate overwatcher
+rnote over overwatcher: overwatcher returns home
+
+
+robot -> coral: goTo(DEPLOYED) command scheduled
+activate coral
+rnote over coral: coral picker lowering
+
+robot -> chamber: pick() command scheduled
+activate chamber
+rnote over chamber: coral being sucked in
+
+coral -> robot: goTo(DEPLOYED) command ends
+deactivate coral
+chamber -> robot: pick() command ends
+deactivate chamber
+deactivate coral
+robot -> coral: goTo(STOWED) command scheduled
+activate coral
+rnote over coral: coral picker raising
+
+
+robot -> affector: grab() command scheduled
+activate affector
+rnote over affector: rollers/grab started
+
+robot -> overwatcher: goTo(CORAL_PICK) command scheduled
+rnote over overwatcher: overwatcher moves\nto coral pick position
+
+
+
+deactivate chamber
+overwatcher -> robot: goTo(CORAL_PICK) command ends
+
+
+
+rnote over affector: affector finishes grab
+affector -> robot: grab() command ends
+deactivate affector
+
+robot -> overwatcher: goTo(HOME) command scheduled
+rnote over overwatcher: overwatcher returns home
+overwatcher -> robot: goTo(HOME) command ends
+deactivate overwatcher
+
+
+coral -> robot: goTo(STOWED) command ends
+deactivate robot
+deactivate coral 
+
+
+
+@enduml
